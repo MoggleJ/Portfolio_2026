@@ -137,7 +137,7 @@ class PortfolioDataLoader {
                 <div class="experience-header">
                     ${exp.logo ? `
                         <div class="company-logo">
-                            <img src="../images/${exp.logo}" alt="${exp.company}">
+                            <img src="./images/${exp.logo}" alt="${exp.company}">
                         </div>
                     ` : `
                         <div class="company-logo">
@@ -637,7 +637,7 @@ document.addEventListener('keydown', (e) => {
 // Initialize everything when DOM is ready
 // ========================================
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log('Portfolio loaded successfully! 🚀');
+    console.log('Portfolio loaded successfully!');
     
     const dataLoader = new PortfolioDataLoader();
     await dataLoader.init();
