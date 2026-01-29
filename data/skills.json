@@ -1,0 +1,163 @@
+{
+  "skillCategories": [
+    {
+      "id": "programming",
+      "icon": "💻",
+      "title": {
+        "en": "Programming Languages",
+        "fr": "Langages de Programmation"
+      },
+      "skills": [
+        { "name": "Python", "autonomy_level": 5 },
+        { "name": "C / C++", "autonomy_level": 5 },
+        { "name": "JavaScript", "autonomy_level": 5 },
+        { "name": "Java", "autonomy_level": 4 },
+        { "name": "TypeScript", "autonomy_level": 4 },
+        { "name": "HTML / CSS", "autonomy_level": 3 },
+        { "name": "Arduino", "autonomy_level": 3 },
+        { "name": "Assembly", "autonomy_level": 3 }
+      ]
+    },
+    {
+      "id": "frameworks",
+      "icon": "🛠️",
+      "title": {
+        "en": "Frameworks & Tools",
+        "fr": "Frameworks & Outils"
+      },
+      "skills": [
+        { "name": "Node.js", "autonomy_level": 4 },
+        { "name": "Angular", "autonomy_level": 4 },
+        { "name": "LabVIEW", "autonomy_level": 3 },
+        { "name": "MATLAB/Simulink", "autonomy_level": 3 },
+        { "name": "Windows CVI", "autonomy_level": 3 },
+        { "name": "Git / GitHub / GitLab", "autonomy_level": 5 },
+        { "name": "Docker", "autonomy_level": 3 }
+      ]
+    },
+    {
+      "id": "embedded",
+      "icon": "⚡",
+      "title": {
+        "en": "Embedded Systems",
+        "fr": "Systèmes Embarqués"
+      },
+      "skills": [
+        { "name": "Arduino", "autonomy_level": 5 },
+        { "name": "Raspberry Pi", "autonomy_level": 5 },
+        { "name": "STM32", "autonomy_level": 4 },
+        { 
+          "name": {
+            "en": "IoT Protocols",
+            "fr": "Protocoles IoT"
+          }, 
+          "autonomy_level": 3 
+        },
+        { "name": "RTOS", "autonomy_level": 3 },
+        { 
+          "name": {
+            "en": "Sensors & Actuators",
+            "fr": "Capteurs & Actionneurs"
+          }, 
+          "autonomy_level": 4 
+        }
+      ]
+    },
+    {
+      "id": "platforms",
+      "icon": "🖥️",
+      "title": {
+        "en": "Platforms & OS",
+        "fr": "Plateformes & OS"
+      },
+      "skills": [
+        { "name": "Linux", "autonomy_level": 5 },
+        { "name": "Windows", "autonomy_level": 5 },
+        { "name": "Docker", "autonomy_level": 3 },
+        { 
+          "name": {
+            "en": "Cross-platform Dev",
+            "fr": "Dév. Multi-plateforme"
+          }, 
+          "autonomy_level": 3 
+        }
+      ]
+    },
+    {
+      "id": "languages",
+      "icon": "🌍",
+      "title": {
+        "en": "Languages",
+        "fr": "Langues"
+      },
+      "skills": [
+        { 
+          "name": {
+            "en": "French (Native)",
+            "fr": "Français (Natif)"
+          }, 
+          "autonomy_level": 5 
+        },
+        { 
+          "name": {
+            "en": "English (TOEIC 940)",
+            "fr": "Anglais (TOEIC 940)"
+          }, 
+          "autonomy_level": 5 
+        },
+        { 
+          "name": {
+            "en": "Spanish (B2)",
+            "fr": "Espagnol (B2)"
+          }, 
+          "autonomy_level": 4 
+        }
+      ]
+    },
+    {
+      "id": "professional",
+      "icon": "🎯",
+      "title": {
+        "en": "Professional Skills",
+        "fr": "Compétences Professionnelles"
+      },
+      "skills": [
+        { 
+          "name": {
+            "en": "Safety Compliance",
+            "fr": "Conformité Sécurité"
+          }, 
+          "autonomy_level": 5 
+        },
+        { 
+          "name": {
+            "en": "Quality Control",
+            "fr": "Contrôle Qualité"
+          }, 
+          "autonomy_level": 5 
+        },
+        { 
+          "name": {
+            "en": "Time Management",
+            "fr": "Gestion du Temps"
+          }, 
+          "autonomy_level": 5 
+        },
+        { 
+          "name": {
+            "en": "Network Design",
+            "fr": "Conception Réseau"
+          }, 
+          "autonomy_level": 5 
+        },
+        { 
+          "name": {
+            "en": "Code Organization",
+            "fr": "Organisation du Code"
+          }, 
+          "autonomy_level": 5 
+        }
+      ]
+    }
+  ]
+}

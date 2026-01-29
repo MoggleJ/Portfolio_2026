@@ -11,23 +11,30 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    <div class="stardust"></div>
+    <div class="nebula-effect"></div>
+    
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo">Jade</a>
+            <a href="#" class="logo">
+                <span class="logo-colored">Ja</span>
+                <span class="logo-white">de</span>
+            </a>
             <button class="menu-toggle" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active" data-en="Home" data-fr="Accueil">Home</a></li>
-                <li><a href="#projects" class="nav-link" data-en="Projects" data-fr="Projets">Projects</a></li>
-                <li><a href="#experience" class="nav-link" data-en="Experience" data-fr="Expérience">Experience</a></li>
-                <li><a href="#about" class="nav-link" data-en="About" data-fr="À propos">About</a></li>
+                <li><a href="#home" class="nav-link active" data-en="Home" data-fr="Accueil">Accueil</a></li>
+                <li><a href="#projects" class="nav-link" data-en="Projects" data-fr="Projets">Projets</a></li>
+                <li><a href="#skills" class="nav-link" data-en="Skills" data-fr="Compétences">Compétences</a></li>
+                <li><a href="#about" class="nav-link" data-en="About" data-fr="À propos">A propos</a></li>
+                <li><a href="#experience" class="nav-link" data-en="Experience" data-fr="Expérience">Expérience</a></li>
                 <li><a href="#contact" class="nav-link" data-en="Contact" data-fr="Contact">Contact</a></li>
                 <li>
                     <button class="language-toggle" id="languageToggle" aria-label="Toggle language">
-                        <span class="language-option active" data-language="en">EN</span>
+                        <span class="language-option active" data-language="en" aria-label="English">EN</span>
                         <span class="language-separator">|</span>
-                        <span class="language-option" data-language="fr">FR</span>
+                        <span class="language-option" data-language="fr" aria-label="Français">FR</span>
                     </button>
                 </li>
             </ul>
@@ -71,226 +78,34 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-
+    <!-- Projects -->
     <section id="projects" class="projects-section">
         <div class="container">
-            <h2 class="section-title" data-en="Selected Projects" data-fr="Projets sélectionnés">
-            </h2>
-            <p class="section-subtitle"
-            data-en="A selection of my recent work"
-            data-fr="Une sélection de mes travaux récents">
+            <h2 class="section-title" data-aos="fade-up" 
+                data-en="Featured Projects" 
+                data-fr="Projets Sélectionnés">Featured Projects</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100"
+               data-en="A selection of my recent work in embedded systems and software development"
+               data-fr="Une sélection de mes travaux récents en systèmes embarqués et développement logiciel">
+                A selection of my recent work in embedded systems and software development
             </p>
-
-            <div class="projects-grid">
-
-            <!-- Project 1 -->
-            <article class="project-card">
-                <div class="project-image">
-                <div class="placeholder-project"><span>01</span></div>
-                </div>
-                <div class="project-info">
-                <h3 data-en="IoT Monitoring System" data-fr="Système de monitoring IoT">
-                </h3>
-
-                <p data-en="Real-time monitoring system for Industry 4.0 using sensors, LoRaWAN and a web dashboard."
-                    data-fr="Système de monitoring temps réel pour l'industrie 4.0 intégrant capteurs, LoRaWAN et tableau de bord web.">
-                </p>
-
-                <ul class="project-details">
-                    <li><strong data-en="Autonomy level:" data-fr="Niveau d'autonomie :"></strong>
-                    <span data-en="Full project ownership" data-fr="Gestion complète du projet"></span>
-                    </li>
-                    <li><strong data-en="Skills developed:" data-fr="Compétences développées :"></strong>
-                    <span data-en="Embedded C, LoRaWAN, sensor integration, backend basics"
-                            data-fr="C embarqué, LoRaWAN, intégration de capteurs, bases backend">
-                    </span>
-                    </li>
-                    <li><strong data-en="What I gained:" data-fr="Apprentissages :"></strong>
-                    <span data-en="End-to-end IoT system design and real-world deployment constraints"
-                            data-fr="Vision complète d'un système IoT et contraintes terrain">
-                    </span>
-                    </li>
-                </ul>
-                </div>
-            </article>
-
-            <!-- Project 2 -->
-            <article class="project-card">
-                <div class="project-image">
-                <div class="placeholder-project"><span>02</span></div>
-                </div>
-                <div class="project-info">
-                <h3 data-en="Secure Network Architecture" data-fr="Architecture réseau sécurisée">
-                    Secure Network Architecture
-                </h3>
-
-                <p data-en="Design and implementation of a multi-site secure network with VLANs and VPNs."
-                    data-fr="Conception et mise en œuvre d'une architecture réseau multi-sites avec VLAN et VPN.">
-                    Design and implementation of a multi-site secure network with VLANs and VPNs.
-                </p>
-
-                <ul class="project-details">
-                    <li><strong data-en="Autonomy level:" data-fr="Niveau d'autonomie :">Autonomy level:</strong>
-                    <span data-en="High autonomy with technical validation"
-                            data-fr="Forte autonomie avec validation technique">High autonomy with technical validation</span>
-                    </li>
-                    <li><strong data-en="Skills developed:" data-fr="Compétences développées :">Skills developed:</strong>
-                    <span data-en="Network segmentation, VPNs, security principles"
-                            data-fr="Segmentation réseau, VPN, principes de sécurité">
-                        Network segmentation, VPNs, security principles
-                    </span>
-                    </li>
-                    <li><strong data-en="What I gained:" data-fr="Apprentissages :">What I gained:</strong>
-                    <span data-en="Understanding of scalable and secure enterprise networks"
-                            data-fr="Compréhension des réseaux d'entreprise sécurisés et scalables">
-                        Understanding of scalable and secure enterprise networks
-                    </span>
-                    </li>
-                </ul>
-                </div>
-            </article>
-
-            <!-- Project 3 -->
-            <article class="project-card">
-                <div class="project-image">
-                <div class="placeholder-project"><span>03</span></div>
-                </div>
-                <div class="project-info">
-                <h3 data-en="High-Performance Firmware" data-fr="Firmware haute performance">
-                    High-Performance Firmware
-                </h3>
-
-                <p data-en="Optimized real-time firmware with multitasking and high-speed serial communication."
-                    data-fr="Firmware temps réel optimisé avec multitâche et communication série haute vitesse.">
-                    Optimized real-time firmware with multitasking and high-speed serial communication.
-                </p>
-
-                <ul class="project-details">
-                    <li><strong data-en="Autonomy level:" data-fr="Niveau d'autonomie :">Autonomy level:</strong>
-                    <span data-en="Autonomous development within specifications"
-                            data-fr="Développement autonome selon cahier des charges">Autonomous development within specifications</span>
-                    </li>
-                    <li><strong data-en="Skills developed:" data-fr="Compétences développées :">Skills developed:</strong>
-                    <span data-en="RTOS, task scheduling, performance optimization"
-                            data-fr="RTOS, ordonnancement des tâches, optimisation des performances">
-                        RTOS, task scheduling, performance optimization
-                    </span>
-                    </li>
-                    <li><strong data-en="What I gained:" data-fr="Apprentissages :">What I gained:</strong>
-                    <span data-en="Strong understanding of real-time constraints and low-level debugging"
-                            data-fr="Maîtrise des contraintes temps réel et du débogage bas niveau">
-                        Strong understanding of real-time constraints and low-level debugging
-                    </span>
-                    </li>
-                </ul>
-                </div>
-            </article>
-
+            <div class="projects-grid" id="projects-container">
+                <!-- Loaded dynamically from projects.json -->
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience-section">
+    <!-- Skills -->
+    <section id="skills" class="skills-section">
         <div class="container">
-            <h2 class="section-title" data-en="Professional Experience" data-fr="Expérience Professionnelle"></h2>
-            <p class="section-subtitle"
-               data-en="My professional background and internships"
-               data-fr="Mon parcours professionnel et mes stages">
-            </p>
-
-            <div class="experience-timeline">
-                <!-- Experience 1 -->
-                <article class="experience-card" data-aos="fade-up">
-                    <div class="experience-header">
-                        <div class="company-logo">
-                            <img src="images/sncf-logo.png" alt="SNCF" loading="lazy">
-                        </div>
-                        <div class="experience-meta">
-                            <h3 data-en="Intern - Embedded Systems Engineer" data-fr="Stagiaire - Ingénieure Systèmes Embarqués"></h3>
-                            <p class="company-name" data-en="SNCF Rolling Stock Maintenance Center" data-fr="Centre de Maintenance du Matériel Roulant SNCF"></p>
-                            <div class="experience-details">
-                                <span class="location" data-en="Le Mans, France" data-fr="Le Mans, France"></span>
-                                <span class="dates" data-en="Feb 2024 - Aug 2024" data-fr="Fév 2024 - Août 2024"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="experience-body">
-                        <p data-en="Developed embedded systems for railway maintenance operations, working with real-time protocols and IoT integration. Contributed to firmware optimization and sensor integration for predictive maintenance systems."
-                           data-fr="Développement de systèmes embarqués pour les opérations de maintenance ferroviaire, travail avec des protocoles temps réel et intégration IoT. Contribution à l'optimisation du firmware et l'intégration de capteurs pour les systèmes de maintenance prédictive.">
-                        </p>
-                        <div class="keywords">
-                            <span class="keyword">C/C++</span>
-                            <span class="keyword">Embedded Systems</span>
-                            <span class="keyword">IoT</span>
-                            <span class="keyword">Real-time Protocols</span>
-                            <span class="keyword">Sensor Integration</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Experience 2 -->
-                <article class="experience-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="experience-header">
-                        <div class="company-logo">
-                            <img src="images/ensim-logo.png" alt="ENSIM" loading="lazy">
-                        </div>
-                        <div class="experience-meta">
-                            <h3 data-en="Engineering Student - Network & Embedded Systems" data-fr="Étudiante Ingénieure - Réseaux & Systèmes Embarqués"></h3>
-                            <p class="company-name" data-en="National Engineering School of Le Mans (ENSIM)" data-fr="École Nationale Supérieure d'Ingénieurs du Mans (ENSIM)"></p>
-                            <div class="experience-details">
-                                <span class="location" data-en="Le Mans, France" data-fr="Le Mans, France"></span>
-                                <span class="dates" data-en="Sep 2021 - Present" data-fr="Sep 2021 - Actuellement"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="experience-body">
-                        <p data-en="Pursuing a comprehensive engineering degree with specialization in embedded systems and network architecture. Led multiple projects including IoT monitoring systems and secure network implementations. Strong foundation in mathematics, physics, and software engineering principles."
-                           data-fr="Poursuivre un cycle ingénieur complet avec spécialisation en systèmes embarqués et architecture réseau. Direction de plusieurs projets incluant des systèmes de monitoring IoT et des implémentations réseau sécurisées. Fondations solides en mathématiques, physique et principes d'ingénierie logicielle.">
-                        </p>
-                        <div class="keywords">
-                            <span class="keyword">Network Architecture</span>
-                            <span class="keyword">IoT Systems</span>
-                            <span class="keyword">Project Management</span>
-                            <span class="keyword">Technical Leadership</span>
-                            <span class="keyword">System Design</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Experience 3 -->
-                <article class="experience-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="experience-header">
-                        <div class="company-logo">
-                            <img src="images/freelance-logo.png" alt="Freelance" loading="lazy">
-                        </div>
-                        <div class="experience-meta">
-                            <h3 data-en="Freelance Developer" data-fr="Développeuse Freelance"></h3>
-                            <p class="company-name" data-en="Independent Projects" data-fr="Projets Indépendants"></p>
-                            <div class="experience-details">
-                                <span class="location" data-en="Remote" data-fr="À distance"></span>
-                                <span class="dates" data-en="2022 - Present" data-fr="2022 - Actuellement"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="experience-body">
-                        <p data-en="Developed custom embedded systems solutions and IoT applications for various clients. Expertise in firmware development, system optimization, and technical consulting. Strong track record of delivering high-quality solutions on time."
-                           data-fr="Développement de solutions de systèmes embarqués personnalisés et d'applications IoT pour divers clients. Expertise en développement firmware, optimisation système et consulting technique. Historique solide de livraison de solutions de haute qualité dans les délais.">
-                        </p>
-                        <div class="keywords">
-                            <span class="keyword">Full Stack</span>
-                            <span class="keyword">Firmware Development</span>
-                            <span class="keyword">Consulting</span>
-                            <span class="keyword">Custom Solutions</span>
-                            <span class="keyword">Technical Support</span>
-                        </div>
-                    </div>
-                </article>
+            <h2 class="section-title" data-aos="fade-up" 
+                data-en="Technical Skills" 
+                data-fr="Compétences Techniques">Technical Skills</h2>
+            <div class="skills-grid-main" id="skills-container">
+                <!-- Loaded dynamically from skills.json -->
             </div>
         </div>
     </section>
-
     
     <section id="about" class="about-section">
         <div class="container">
@@ -298,7 +113,10 @@
             <div class="about-content">
                 <div class="about-image" data-aos="fade-right">
                     <div class="image-frame">
-                        <!-- Remplacez par votre photo -->
+                        <!-- If PHOTO-Jade.jpg exists in the images/ folder it will be used; otherwise the placeholder remains -->
+                        <img class="profile-photo" src="./images/PHOTO-Jade.jpg" alt="Jade Barbier" 
+                             onload="this.style.display='block'; this.nextElementSibling.style.display='none';" 
+                             onerror="this.style.display='none';"/>
                         <div class="placeholder-image">
                             <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -317,28 +135,18 @@
                        data-fr="Actuellement étudiante en cycle ingénieur à l’École Nationale Supérieure d’Ingénieurs du Mans (ENSIM), j’ai développé de solides compétences en systèmes embarqués, architecture réseau et développement logiciel. Mon parcours académique est enrichi par des projets concrets et une expérience pratique au Centre de Maintenance du Matériel Roulant de la SNCF, où j’ai appliqué mes connaissances en conditions réelles et renforcé mes compétences en C/C++, Python et divers langages.">
                     </p>
                     
-                    <!-- Skills -->
-                    <div class="skills-section">
-                        <h3 data-en="Main skills" data-fr="Compétences principales"></h3>
-                        <div class="skills-grid">
-                            <div class="skill-item">
-                                <div class="skill-icon">⚡</div>
-                                <h4 data-en="Embedded Systems" data-fr="Systèmes embarqués"></h4>
-                                <p>C/C++, RTOS, Microcontrôleurs</p>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon">🌐</div>
-                                <h4 data-en="Networks" data-fr="Réseaux"></h4>
-                                <p>TCP/IP, IoT, Protocoles industriels</p>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon">🔧</div>
-                                <h4 data-en="Development" data-fr="Développement"></h4>
-                                <p>Python, JavaScript, Git</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" 
+                data-en="Experience & Education" 
+                data-fr="Expérience & Formation">Experience & Education</h2>
+            <div class="experience-timeline" id="experience-container">
             </div>
         </div>
     </section>
@@ -349,10 +157,9 @@
         <div class="container">
             <div class="contact-content">
                 <div class="contact-text" data-aos="fade-right">
-                    <h2 class="section-title">Travaillons ensemble</h2>
-                    <p class="contact-intro">
-                        Vous avez un projet en tête ? Une question ? N'hésitez pas à me contacter. 
-                        Je suis toujours intéressée par de nouveaux défis techniques.
+                    <h2 class="section-title" data-en="Let's work together" data-fr="Travaillons ensemble">Travaillons ensemble</h2>
+                    <p class="contact-intro" data-en="You have a project in mind? A question? A job opportunity ? Contact me!" data-fr="Vous avez un projet en tête ? Une question ? Une opportunité professionnelle ? Contactez-moi !">
+                        Vous avez un projet en tête ? Une question ? Une opportunité professionnelle ? Contactez-moi !
                     </p>
                     
                     <div class="contact-info">
@@ -365,7 +172,7 @@
                             </div>
                             <div>
                                 <h4>Email</h4>
-                                <a href="/cdn-cgi/l/email-protection#0d6e6263796c6e794d676c69686f6c7f6f64687f236e6260"><span class="__cf_email__" data-cfemail="41222e2f35202235012b202524232033232824336f222e2c">[email&#160;protected]</span></a>
+                                <a href="/cdn-cgi/l/email-protection#0d6e6263796c6e794d676c69686f6c7f6f64687f236e6260"><span class="__cf_email__" data-cfemail="41222e2f35202235012b202524232033232824336f222e2c">jade72210@gmail.com</span></a>
                             </div>
                         </div>
                         
@@ -377,7 +184,7 @@
                             </div>
                             <div>
                                 <h4>GitHub</h4>
-                                <a href="https://github.com/votre-profile" target="_blank">@votre-profile</a>
+                                <a href="https://github.com/MoggleJ" target="_blank">@MoggleJ</a>
                             </div>
                         </div>
                         
@@ -391,7 +198,7 @@
                             </div>
                             <div>
                                 <h4>LinkedIn</h4>
-                                <a href="https://linkedin.com/in/votre-profile" target="_blank">Jade Barbier</a>
+                                <a href="https://www.linkedin.com/in/jade-barbier-b261b8266/" target="_blank">Jade Barbier</a>
                             </div>
                         </div>
                     </div>
@@ -426,10 +233,11 @@
             </div>
         </div>
     </section>
+    
     <footer class="footer">
         <div class="container">
-            <p data-en="© 2025 Jade Barbier. All rights reserved." 
-               data-fr="© 2025 Jade Barbier. Tous droits réservés."></p>
+            <p data-en="© 2026 Jade Barbier. All rights reserved." 
+               data-fr="© 2026 Jade Barbier. Tous droits réservés."></p>
         </div>
     </footer>
 

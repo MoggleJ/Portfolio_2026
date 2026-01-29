@@ -1,3 +1,201 @@
+
+class PortfolioDataLoader {
+    constructor() {
+        this.currentLang = localStorage.getItem('preferredLang') || 'en';
+        this.data = {
+            projects: null,
+            skills: null,
+            experience: null
+        };
+    }
+
+    async init() {
+        try {
+            // Load all data files
+            await Promise.all([
+                this.loadProjects(),
+                this.loadSkills(),
+                this.loadExperience()
+            ]);
+            
+            // Render all sections
+            this.renderProjects();
+            this.renderSkills();
+            this.renderExperience();
+            
+            console.log('✅ Portfolio data loaded successfully');
+        } catch (error) {
+            console.error('❌ Error loading portfolio data:', error);
+        }
+    }
+
+    async loadProjects() {
+        const response = await fetch('./data/projects.json');
+        const data = await response.json();
+        this.data.projects = data.projects;
+    }
+
+    async loadSkills() {
+        const response = await fetch('./data/skills.json');
+        const data = await response.json();
+        this.data.skills = data.skillCategories;
+    }
+
+    async loadExperience() {
+        const response = await fetch('./data/experience.json');
+        const data = await response.json();
+        this.data.experience = data.experiences;
+    }
+
+    getText(textObj) {
+        if (typeof textObj === 'string') return textObj;
+        return textObj[this.currentLang] || textObj.en;
+    }
+
+    // ========================================
+    // Render Projects
+    // ========================================
+    renderProjects() {
+        const container = document.getElementById('projects-container');
+        if (!container || !this.data.projects) return;
+
+        container.innerHTML = this.data.projects.map((project, index) => `
+            <article class="project-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
+                <div class="project-image">
+                    <div class="placeholder-project gradient-${project.gradient}">
+                        <span>${project.icon}</span>
+                    </div>
+                    <div class="project-overlay">
+                        <a href="${project.link}" class="project-link-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags">
+                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                    <h3 data-en="${this.escapeHtml(project.title.en)}" 
+                        data-fr="${this.escapeHtml(project.title.fr)}">
+                        ${this.getText(project.title)}
+                    </h3>
+                    <p data-en="${this.escapeHtml(project.description.en)}" 
+                       data-fr="${this.escapeHtml(project.description.fr)}">
+                        ${this.getText(project.description)}
+                    </p>
+                    <a href="${project.link}" class="project-link">
+                        <span data-en="Learn more" data-fr="En savoir plus">Learn more</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+        `).join('');
+    }
+
+    // ========================================
+    // Render Skills
+    // ========================================
+    renderSkills() {
+        const container = document.getElementById('skills-container');
+        if (!container || !this.data.skills) return;
+
+        container.innerHTML = this.data.skills.map((category, index) => `
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
+                <div class="category-icon">${category.icon}</div>
+                <h3 data-en="${this.escapeHtml(category.title.en)}" 
+                    data-fr="${this.escapeHtml(category.title.fr)}">
+                    ${this.getText(category.title)}
+                </h3>
+                <div class="skill-items">
+                    ${category.skills.map(skill => {
+                        const skillName = this.getText(skill.name);
+                        const dataAttrs = typeof skill.name === 'object' ? 
+                            `data-en="${this.escapeHtml(skill.name.en)}" data-fr="${this.escapeHtml(skill.name.fr)}"` : 
+                            '';
+                        return `<span class="skill-badge level-${skill.level}" ${dataAttrs}>${skillName}</span>`;
+                    }).join('')}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // ========================================
+    // Render Experience
+    // ========================================
+    renderExperience() {
+        const container = document.getElementById('experience-container');
+        if (!container || !this.data.experience) return;
+
+        container.innerHTML = this.data.experience.map((exp, index) => `
+            <div class="experience-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
+                <div class="experience-header">
+                    ${exp.logo ? `
+                        <div class="company-logo">
+                            <img src="../images/${exp.logo}" alt="${exp.company}">
+                        </div>
+                    ` : `
+                        <div class="company-logo">
+                            <span>${exp.type === 'work' ? '💼' : '🎓'}</span>
+                        </div>
+                    `}
+                    <div class="experience-meta">
+                        <h3 data-en="${this.escapeHtml(exp.title.en)}" 
+                            data-fr="${this.escapeHtml(exp.title.fr)}">
+                            ${this.getText(exp.title)}
+                        </h3>
+                        <p class="company-name">${this.getText(exp.company)}</p>
+                        <div class="experience-details">
+                            <span class="location">${exp.location}</span>
+                            <span class="dates">${this.formatDate(exp.startDate)} - ${exp.current ? (this.currentLang === 'en' ? 'Present' : 'Présent') : this.formatDate(exp.endDate)}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-body">
+                    <ul>
+                        ${this.getText(exp.description).map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                    ${exp.tags.length > 0 ? `
+                        <div class="keywords">
+                            ${exp.tags.map(tag => `<span class="keyword">${tag}</span>`).join('')}
+                        </div>
+                    ` : ''}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // ========================================
+    // Helper Functions
+    // ========================================
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    formatDate(dateStr) {
+        if (dateStr.length === 4) return dateStr; // Just year
+        const date = new Date(dateStr);
+        const options = { month: 'short', year: 'numeric' };
+        return date.toLocaleDateString(this.currentLang === 'fr' ? 'fr-FR' : 'en-US', options);
+    }
+
+    // Update language and re-render
+    updateLanguage(lang) {
+        this.currentLang = lang;
+        this.renderProjects();
+        this.renderSkills();
+        this.renderExperience();
+    }
+}
+
+
 // ========================================
 // Initialize AOS (Animate On Scroll)
 // ========================================
@@ -190,31 +388,6 @@ fadeElements.forEach(el => {
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     fadeInObserver.observe(el);
-});
-
-// ========================================
-// Project Card Tilt Effect (3D hover)
-// ========================================
-const projectCards = document.querySelectorAll('.project-card');
-
-projectCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
-    });
 });
 
 // ========================================
@@ -422,9 +595,8 @@ if (prefersReducedMotion) {
 // ========================================
 // Console Easter Egg
 // ========================================
-console.log('%c👋 Hello, developer!', 'font-size: 24px; font-weight: bold; color: #7DD3C0;');
-console.log('%cIntéressé par le code ? Visitez mon GitHub !', 'font-size: 14px; color: #B8336A;');
-console.log('%chttps://github.com/votre-profile', 'font-size: 12px; color: #888;');
+console.log('%c Welcome to my portfolio!', 'font-size: 24px; font-weight: bold; color: #4DBAA6;');
+console.log('%c Finding anything interesting? Don\'t hesitate to reach out!', 'font-size: 14px; color: #B8336A;');
 
 // ========================================
 // Performance Optimization
@@ -460,12 +632,15 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+
 // ========================================
 // Initialize everything when DOM is ready
 // ========================================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     console.log('Portfolio loaded successfully! 🚀');
     
+    const dataLoader = new PortfolioDataLoader();
+    await dataLoader.init();
     // Add any additional initialization here
     updateActiveLink();
 });

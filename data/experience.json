@@ -1,0 +1,109 @@
+{
+  "experiences": [
+    {
+      "id": "sncf",
+      "type": "work",
+      "title": {
+        "en": "Work-Study in Embedded Computing & Networks",
+        "fr": "Alternance en Informatique Embarquée & Réseaux"
+      },
+      "company": "CIM - SNCF Voyageurs",
+      "location": "Le Mans, France",
+      "startDate": "2024-09",
+      "endDate": "2027-09",
+      "current": true,
+      "description": {
+        "en": [
+          "Testing equipment compliance with ITxPT specifications based on power consumption and exchanged service compatibility",
+          "Developing client software using EST APIs for a PoC on securing on-board communication",
+          "Working with embedded systems in railway transportation context"
+        ],
+        "fr": [
+          "Test de conformité des équipements aux spécifications ITxPT selon leur consommation électrique et compatibilité de services échangés",
+          "Développement d'un logiciel client utilisant les API EST pour un PoC sur la sécurisation des communications embarquées",
+          "Travail sur des systèmes embarqués dans le contexte du transport ferroviaire"
+        ]
+      },
+      "tags": ["Embedded Systems", "Networks", "ITxPT", "Tests", "Security"],
+      "logo": "LOGO-SNCF-VOYAGEURS.jpg"
+    },
+    {
+      "id": "ensim",
+      "type": "education",
+      "title": {
+        "en": "Master's Degree in Computer Engineering",
+        "fr": "Diplôme d'Ingénieur en Informatique"
+      },
+      "company": "ENSIM - École Nationale Supérieure d'Ingénieurs du Mans",
+      "location": "Le Mans, France",
+      "startDate": "2022-09",
+      "endDate": "2027-09",
+      "current": true,
+      "description": {
+        "en": [
+          "Developing applications in JavaScript, TypeScript, Java, Python, and C",
+          "Working with Raspberry Pi, Arduino, and STM32 Discovery boards",
+          "Collaborating on mechatronic projects including automated systems and connected games",
+          "Personal projects: autonomous vehicles, handheld game consoles, 3D modeling"
+        ],
+        "fr": [
+          "Développement d'applications en JavaScript, TypeScript, Java, Python et C",
+          "Travail avec Raspberry Pi, Arduino et cartes STM32 Discovery",
+          "Collaboration sur des projets mécatroniques incluant systèmes automatisés et jeux connectés",
+          "Projets personnels : véhicules autonomes, consoles de jeu portables, modélisation 3D"
+        ]
+      },
+      "tags": ["Multi-platform", "IoT", "Mechatronics"],
+      "logo": "LOGO-ENSIM.jpg"
+    },
+    {
+      "id": "colart",
+      "type": "work",
+      "title": {
+        "en": "Packaging Operator",
+        "fr": "Opératrice de Conditionnement"
+      },
+      "company": "Colart International",
+      "location": "Le Mans, France",
+      "startDate": "2023-06",
+      "endDate": "2023-08",
+      "current": false,
+      "description": {
+        "en": [
+          "Assembled, controlled, and packaged semi-finished products on production lines",
+          "Maintained smooth production while respecting safety standards and deadlines",
+          "Applied quality control procedures and compliance standards"
+        ],
+        "fr": [
+          "Assemblage, contrôle et conditionnement de produits semi-finis sur lignes de production",
+          "Maintien d'une production fluide dans le respect des normes de sécurité et des délais",
+          "Application des procédures de contrôle qualité et normes de conformité"
+        ]
+      },
+      "tags": [],
+      "logo": "LOGO-COLART.jpg"
+    },
+    {
+      "id": "bac",
+      "type": "education",
+      "title": {
+        "en": "General Baccalaureate with Honors",
+        "fr": "Baccalauréat Général avec Mention"
+      },
+      "company": {
+        "en": "André Malraux High School",
+        "fr": "Lycée André Malraux"
+      },
+      "location": "Allonnes, France",
+      "startDate": "2022",
+      "endDate": "2022",
+      "current": false,
+      "description": {
+        "en": ["Physics-Chemistry, Mathematics specialties"],
+        "fr": ["Spécialités Physique-Chimie, Mathématiques"]
+      },
+      "tags": [],
+      "logo": "LOGO-MALRAUX.jpg"
+    }
+  ]
+}

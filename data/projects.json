@@ -1,0 +1,94 @@
+{
+  "projects": [
+    {
+      "id": "secure-onboard-comm",
+      "title": {
+        "en": "Secure On-Board Communication System",
+        "fr": "Système de Communication Embarqué Sécurisé"
+      },
+      "description": {
+        "en": "Developing a client software using EST APIs for a proof of concept focused on securing communication in railway on-board systems. Implementing encryption and authentication protocols for ITxPT-compliant equipment.",
+        "fr": "Développement d'un logiciel client utilisant les API EST pour une preuve de concept axée sur la sécurisation des communications dans les systèmes ferroviaires embarqués. Mise en œuvre de protocoles de chiffrement et d'authentification pour équipements conformes ITxPT."
+      },
+      "tags": ["Security", "EST API", "PoC", "ITxPT"],
+      "icon": "🔐",
+      "gradient": "jade-magenta",
+      "link": "#contact"
+    },
+    {
+      "id": "connected-pictionary",
+      "title": {
+        "en": "Connected Pictionary Game",
+        "fr": "Jeu Pictionary Connecté"
+      },
+      "description": {
+        "en": "Collaborative mechatronic project combining embedded systems with network programming. Real-time multiplayer game with synchronized drawing, using client-server architecture and embedded controllers for interactive gameplay.",
+        "fr": "Projet mécatronique collaboratif combinant systèmes embarqués et programmation réseau. Jeu multijoueur temps réel avec dessin synchronisé, utilisant une architecture client-serveur et contrôleurs embarqués pour un gameplay interactif."
+      },
+      "tags": ["IoT", "Networking", "Mechatronics"],
+      "icon": "🎮",
+      "gradient": "magenta-jade",
+      "link": "#contact"
+    },
+    {
+      "id": "autonomous-vehicles",
+      "title": {
+        "en": "Autonomous Vehicle Systems",
+        "fr": "Systèmes de Véhicules Autonomes"
+      },
+      "description": {
+        "en": "Personal projects featuring various autonomous vehicles built with Arduino. Integrated sensors for navigation, obstacle avoidance, and path planning. Combined with custom 3D-modeled chassis and mechanical components.",
+        "fr": "Projets personnels présentant divers véhicules autonomes construits avec Arduino. Capteurs intégrés pour la navigation, l'évitement d'obstacles et la planification de trajectoire. Combinés avec châssis personnalisés modélisés en 3D et composants mécaniques."
+      },
+      "tags": ["Arduino", "Robotics", "3D Modeling"],
+      "icon": "🚗",
+      "gradient": "cyan-jade",
+      "link": "#contact"
+    },
+    {
+      "id": "handheld-console",
+      "title": {
+        "en": "Custom Handheld Game Console",
+        "fr": "Console de Jeu Portable Personnalisée"
+      },
+      "description": {
+        "en": "Designed and built a portable game console from scratch using Arduino and custom PCB. Features LCD display, button controls, sound output, and multiple playable games. Includes 3D-printed enclosure and optimized low-level code for performance.",
+        "fr": "Conception et construction d'une console de jeu portable à partir de zéro en utilisant Arduino et PCB personnalisé. Dispose d'un écran LCD, de contrôles boutons, d'une sortie son et de plusieurs jeux jouables. Comprend un boîtier imprimé en 3D et du code bas niveau optimisé pour les performances."
+      },
+      "tags": ["Embedded", "Hardware", "C/C++"],
+      "icon": "🕹️",
+      "gradient": "magenta-cyan",
+      "link": "#contact"
+    },
+    {
+      "id": "card-display-system",
+      "title": {
+        "en": "Automated Card Display System",
+        "fr": "Système d'Affichage de Cartes Automatisé"
+      },
+      "description": {
+        "en": "Collaborative mechatronic project featuring an automated system for displaying cards. Integrated servo motors, sensors, and microcontroller programming for precise control and synchronized movements. Team-based development with mechanical design integration.",
+        "fr": "Projet mécatronique collaboratif présentant un système automatisé pour l'affichage de cartes. Moteurs servo intégrés, capteurs et programmation de microcontrôleur pour un contrôle précis et des mouvements synchronisés. Développement en équipe avec intégration de conception mécanique."
+      },
+      "tags": ["Mechatronics", "Automation", "Motors"],
+      "icon": "🎴",
+      "gradient": "jade-cyan",
+      "link": "#contact"
+    },
+    {
+      "id": "multi-platform-apps",
+      "title": {
+        "en": "Cross-Platform Software Development",
+        "fr": "Développement Logiciel Multi-plateforme"
+      },
+      "description": {
+        "en": "Various applications developed for Linux and Windows environments using multiple programming languages. Includes games, utilities, and networked applications with client-server architecture. Focus on code quality, version control, and documentation.",
+        "fr": "Diverses applications développées pour environnements Linux et Windows utilisant plusieurs langages de programmation. Comprend jeux, utilitaires et applications en réseau avec architecture client-serveur. Focus sur la qualité du code, le contrôle de version et la documentation."
+      },
+      "tags": ["JavaScript", "Python", "Java"],
+      "icon": "💻",
+      "gradient": "cyan-magenta",
+      "link": "#contact"
+    }
+  ]
+}

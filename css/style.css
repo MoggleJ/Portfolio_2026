@@ -1,56 +1,56 @@
 /* ========================================
-   CSS Variables & Root Configuration
+    CSS Variables & Root Configuration
 ======================================== */
 :root {
-    /* Couleurs principales basées sur le moodboard */
-    --jade-light: #7DD3C0;
-    --jade-medium: #4DBAA6;
-    --jade-dark: #2D7D6D;
-    --magenta: #B8336A;
-    --magenta-dark: #8B2850;
-    --pink-light: #F5C6D9;
-    --pink-pale: #FFE5F0;
-    
-    /* Couleurs neutres */
-    --dark-bg: #0D0D0D;
-    --dark-secondary: #1A1A1A;
-    --dark-tertiary: #262626;
-    --light-text: #F8F8F8;
-    --gray-light: #CCCCCC;
-    --gray-medium: #888888;
-    --gray-dark: #444444;
-    
-    /* Typographie */
-    --font-display: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
-    
-    /* Espacements */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 2rem;
-    --spacing-lg: 4rem;
-    --spacing-xl: 6rem;
-    --spacing-2xl: 8rem;
-    
-    /* Transitions et animations */
-    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-    
-    /* Ombres */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
-    --shadow-glow-jade: 0 0 30px rgba(125, 211, 192, 0.3);
-    --shadow-glow-magenta: 0 0 30px rgba(184, 51, 106, 0.3);
-    
-    /* Border radius */
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 20px;
-    --radius-xl: 30px;
-    --radius-full: 9999px;
+     /* Couleurs principales basées sur le moodboard */
+     --jade-light: #7DD3C0;
+     --jade-medium: #4DBAA6;
+     --jade-dark: #2D7D6D;
+     --magenta: #B8336A;
+     --magenta-dark: #8B2850;
+     --pink-light: #F5C6D9;
+     --pink-pale: #FFE5F0;
+     
+     /* Couleurs neutres */
+     --dark-bg: #0D0D0D;
+     --dark-secondary: #1A1A1A;
+     --dark-tertiary: #262626;
+     --light-text: #F8F8F8;
+     --gray-light: #CCCCCC;
+     --gray-medium: #888888;
+     --gray-dark: #444444;
+     
+     /* Typographie */
+     --font-display: 'Playfair Display', serif;
+     --font-body: 'Inter', sans-serif;
+     
+     /* Espacements */
+     --spacing-xs: 0.5rem; /* 8px */
+     --spacing-sm: 1rem; /* 16px */
+     --spacing-md: 2rem; /* 32px */
+     --spacing-lg: 4rem; /* 64px */
+     --spacing-xl: 6rem; /* 96px */
+     --spacing-2xl: 8rem; /* 128px */
+     
+     /* Transitions et animations */
+     --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+     --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+     --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+     --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+     
+     /* Ombres */
+     --shadow-sm: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1); /* 2px */
+     --shadow-md: 0 0.25rem 1rem rgba(0, 0, 0, 0.2); /* 4px */
+     --shadow-lg: 0 0.5rem 2rem rgba(0, 0, 0, 0.3); /* 8px */
+     --shadow-glow-jade: 0 0 1.875rem rgba(125, 211, 192, 0.3); /* 30px */
+     --shadow-glow-magenta: 0 0 1.875rem rgba(184, 51, 106, 0.3); /* 30px */
+     
+     /* Border radius */
+     --radius-sm: 0.5rem; /* 8px */
+     --radius-md: 0.75rem; /* 12px */
+     --radius-lg: 1.25rem; /* 20px */
+     --radius-xl: 1.875rem; /* 30px */
+     --radius-full: 9999px;
 }
 
 /* ========================================
@@ -88,6 +88,76 @@ body {
     padding: 0 var(--spacing-md);
 }
 
+.stardust {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+/* Small stars */
+.stardust::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+        radial-gradient(circle, rgba(125, 211, 192, 0.6) 1px, transparent 1px),
+        radial-gradient(circle, rgba(184, 51, 106, 0.5) 1px, transparent 1px);
+    background-size: 200px 200px, 300px 300px, 250px 250px;
+    background-position: 0 0, 40px 60px, 130px 270px;
+    animation: twinkle 4s ease-in-out infinite;
+}
+
+/* Medium stars */
+.stardust::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.4) 2px, transparent 2px),
+        radial-gradient(circle, rgba(0, 229, 255, 0.3) 2px, transparent 2px);
+    background-size: 400px 400px, 500px 500px;
+    background-position: 50px 50px, 250px 150px;
+    animation: twinkle 6s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Nebula clouds effect */
+.nebula-effect {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(ellipse at 30% 40%, rgba(125, 211, 192, 0.15) 0%, transparent 30%),
+        radial-gradient(ellipse at 70% 60%, rgba(184, 51, 106, 0.12) 0%, transparent 35%),
+        radial-gradient(circle at 50% 80%, rgba(45, 27, 78, 0.2) 0%, transparent 40%);
+    filter: blur(80px);
+    opacity: 0.7;
+    animation: nebulaFloat 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes nebulaFloat {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(3%, -2%) rotate(1deg); }
+    66% { transform: translate(-2%, 3%) rotate(-1deg); }
+}
+
+
 /* ========================================
    Navigation
 ======================================== */
@@ -114,18 +184,31 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
 .logo {
+    display: flex;
+    align-items: center;
     font-family: var(--font-display);
     font-size: 1.75rem;
     font-weight: 900;
-    background: linear-gradient(135deg, var(--jade-light) 0%, var(--magenta) 100%);
+    justify-content: normal;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-decoration: none;
     transition: var(--transition-base);
     position: relative;
+}
+
+.logo .logo-colored {
+    background: linear-gradient(90deg, var(--jade-light), var(--magenta));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo .logo-white {
+    background: var(--light-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .logo::before {
@@ -525,6 +608,17 @@ body {
     opacity: 0.3;
 }
 
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    display: none; /* shown by img onload handler */
+    object-fit: contain; /* prevents zoom/cropping */
+    object-position: center;
+    border-radius: var(--radius-lg);
+    border: 2px solid rgba(125, 211, 192, 0.2);
+    background: transparent;
+}
+
 .image-glow {
     position: absolute;
     top: -50%;
@@ -651,7 +745,6 @@ body {
     background: rgba(255, 255, 255, 0.02);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    transition: var(--transition-base);
     border: 1px solid rgba(125, 211, 192, 0.1);
     position: relative;
 }
@@ -665,7 +758,6 @@ body {
     height: 100%;
     background: linear-gradient(135deg, rgba(125, 211, 192, 0.05) 0%, rgba(184, 51, 106, 0.05) 100%);
     opacity: 0;
-    transition: var(--transition-base);
     pointer-events: none;
 }
 
@@ -674,7 +766,6 @@ body {
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
     border-color: var(--jade-light);
     box-shadow: var(--shadow-glow-jade);
 }
@@ -919,11 +1010,11 @@ body {
 }
 
 .experience-details .location::before {
-    content: '📍';
+    content: '⚲';
 }
 
 .experience-details .dates::before {
-    content: '📅';
+    content: '🗓';
 }
 
 .experience-body {
@@ -1237,34 +1328,8 @@ body {
 /* ========================================
    Responsive Design
 ======================================== */
-@media (max-width: 1024px) {
-    .about-content,
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
-    }
-    
-    .contact-text {
-        position: static;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-        text-align: center;
-    }
-    
-    .footer-left,
-    .footer-right {
-        text-align: center;
-    }
-    
-    .social-links {
-        justify-content: center;
-    }
-}
 
-@media (max-width: 768px) {
+@media (max-width: 1140px) {
     :root {
         --spacing-lg: 3rem;
         --spacing-xl: 4rem;
