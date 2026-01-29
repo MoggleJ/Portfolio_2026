@@ -137,7 +137,7 @@ class PortfolioDataLoader {
                 <div class="experience-header">
                     ${exp.logo ? `
                         <div class="company-logo">
-                            <img src="./images/${exp.logo}" alt="${exp.company}">
+                            <img src="./Portfolio_2026/images/${exp.logo}" alt="${exp.company}">
                         </div>
                     ` : `
                         <div class="company-logo">
