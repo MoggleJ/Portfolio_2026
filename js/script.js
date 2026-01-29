@@ -397,7 +397,6 @@ const contactForm = document.querySelector('.contact-form');
 
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
         
         const submitBtn = contactForm.querySelector('.btn-submit');
         const originalText = submitBtn.querySelector('span').textContent;
