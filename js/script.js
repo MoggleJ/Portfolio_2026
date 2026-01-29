@@ -397,47 +397,38 @@ const contactForm = document.querySelector('.contact-form');
 
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
-        
-        const submitBtn = contactForm.querySelector('.btn-submit');
-        const originalText = submitBtn.querySelector('span').textContent;
-        
-        // Show loading state
-        submitBtn.querySelector('span').textContent = 'Envoi en cours...';
-        submitBtn.disabled = true;
-        
-        // Simulate form submission (replace with actual form handling)
-        try {
-            // If using Formspree, the form will handle submission automatically
-            // This is just for visual feedback
-            
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            // Success feedback
+    e.preventDefault();
+
+    const submitBtn = contactForm.querySelector('.btn-submit');
+    const originalText = submitBtn.querySelector('span').textContent;
+
+    submitBtn.querySelector('span').textContent = 'Envoi en cours...';
+    submitBtn.disabled = true;
+
+    try {
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
             submitBtn.querySelector('span').textContent = '✓ Message envoyé !';
-            submitBtn.style.background = 'linear-gradient(135deg, #2D7D6D 0%, #7DD3C0 100%)';
-            
-            // Reset form
             contactForm.reset();
-            
-            // Reset button after 3 seconds
-            setTimeout(() => {
-                submitBtn.querySelector('span').textContent = originalText;
-                submitBtn.disabled = false;
-                submitBtn.style.background = '';
-            }, 3000);
-            
-        } catch (error) {
-            // Error feedback
+        } else {
             submitBtn.querySelector('span').textContent = '✗ Erreur, réessayez';
-            submitBtn.style.background = 'linear-gradient(135deg, #8B2850 0%, #B8336A 100%)';
-            
-            setTimeout(() => {
-                submitBtn.querySelector('span').textContent = originalText;
-                submitBtn.disabled = false;
-                submitBtn.style.background = '';
-            }, 3000);
         }
-    });
+
+    } catch (error) {
+        submitBtn.querySelector('span').textContent = '✗ Erreur, réessayez';
+    }
+
+    setTimeout(() => {
+        submitBtn.querySelector('span').textContent = originalText;
+        submitBtn.disabled = false;
+    }, 3000);
+});
+
 }
 
 // ========================================
