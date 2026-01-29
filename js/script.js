@@ -396,38 +396,44 @@ fadeElements.forEach(el => {
 const contactForm = document.querySelector('.contact-form');
 
 if (contactForm) {
+    const contactForm = document.querySelector('.contact-form');
+
+if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+        e.preventDefault();
+        
+        const submitBtn = contactForm.querySelector('.btn-submit');
+        const originalText = submitBtn.querySelector('span').textContent;
 
-    const submitBtn = contactForm.querySelector('.btn-submit');
-    const originalText = submitBtn.querySelector('span').textContent;
+        submitBtn.querySelector('span').textContent = 'Envoi en cours...';
+        submitBtn.disabled = true;
 
-    submitBtn.querySelector('span').textContent = 'Envoi en cours...';
-    submitBtn.disabled = true;
+        try {
+            // Send the form to Formspree WITHOUT redirect
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: { 'Accept': 'application/json' }
+            });
 
-    try {
-        const response = await fetch(contactForm.action, {
-            method: 'POST',
-            body: new FormData(contactForm),
-            headers: { 'Accept': 'application/json' }
-        });
+            if (response.ok) {
+                submitBtn.querySelector('span').textContent = '✓ Message envoyé !';
+                contactForm.reset();
+            } else {
+                submitBtn.querySelector('span').textContent = '✗ Erreur, réessayez';
+            }
 
-        if (response.ok) {
-            submitBtn.querySelector('span').textContent = '✓ Message envoyé !';
-            contactForm.reset();
-        } else {
+        } catch (error) {
             submitBtn.querySelector('span').textContent = '✗ Erreur, réessayez';
         }
 
-    } catch (error) {
-        submitBtn.querySelector('span').textContent = '✗ Erreur, réessayez';
-    }
+        setTimeout(() => {
+            submitBtn.querySelector('span').textContent = originalText;
+            submitBtn.disabled = false;
+        }, 3000);
+    });
+}
 
-    setTimeout(() => {
-        submitBtn.querySelector('span').textContent = originalText;
-        submitBtn.disabled = false;
-    }, 3000);
-});
 
 }
 
