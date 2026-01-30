@@ -653,20 +653,26 @@ body {
     line-height: 1.8;
 }
 
-.skill-category {
-    background: rgba(26, 26, 26, 0.5);
-    border: 1px solid var(--dark-tertiary);
-    border-radius: 12px;
-    padding: var(--spacing-md);
-    backdrop-filter: blur(10px);
-    margin-bottom: var(--spacing-md);
+/* ========================================
+   Technical Skills - Compact Grid & Indicators
+======================================== */
+.skills-grid-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Grandes colonnes par catégorie */
+    gap: var(--spacing-md);
+}
+
+.skill-list-full {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* <--- DEUX compétences par ligne */
+    gap: 1.5rem 1rem;
+    margin-top: 10px;
 }
 
 .skill-item-container {
-    margin-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 .skill-info-top {
@@ -676,44 +682,41 @@ body {
 }
 
 .skill-name {
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--light-text);
 }
 
-/* Autonomie : Petits points LED Magenta */
+/* Autonomie : Points LED Magenta */
 .autonomy-dots {
     display: flex;
-    gap: 4px;
+    gap: 3px;
 }
 
 .dot {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     background: var(--dark-tertiary);
-    transition: 0.3s;
 }
 
 .dot.active {
     background: var(--magenta);
-    box-shadow: 0 0 8px var(--magenta);
+    box-shadow: 0 0 6px var(--magenta);
 }
 
-/* Barre de Skill : Ligne fine Jade */
 .skill-bar-bg {
     width: 100%;
-    height: 4px;
+    height: 3px;
     background: var(--dark-tertiary);
     border-radius: 2px;
-    overflow: hidden;
 }
 
 .skill-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--jade-dark), var(--jade-light));
-    box-shadow: 0 0 10px rgba(125, 211, 192, 0.3);
+    background: var(--jade-light);
+    box-shadow: 0 0 8px rgba(125, 211, 192, 0.4);
     border-radius: 2px;
-    transition: width 1s ease-out;
 }
 
 /* ========================================

@@ -59,43 +59,38 @@ class PortfolioDataLoader {
         const container = document.getElementById('projects-container');
         if (!container || !this.data.projects) return;
 
-        container.innerHTML = this.data.projects.map((project, index) => `
-            <article class="project-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
-                <div class="project-image">
-                    <div class="placeholder-project gradient-${project.gradient}">
-                        <span>${project.icon}</span>
+        container.innerHTML = this.data.skills.map((category, index) => `
+    <div class="skill-category" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
+        <div class="category-icon">${category.icon}</div>
+        <h3 data-en="${this.escapeHtml(category.title.en)}" 
+            data-fr="${this.escapeHtml(category.title.fr)}">
+            ${this.getText(category.title)}
+        </h3>
+        <div class="skill-list-full">
+            ${category.skills.map(skill => {
+                const skillName = this.getText(skill.name);
+                const autonomy = skill.autonomy || 3; 
+                const level = skill.level || 75; // Pour la barre de progression
+
+                let dots = '';
+                for(let i=1; i<=5; i++) {
+                    dots += `<span class="dot ${i <= autonomy ? 'active' : ''}"></span>`;
+                }
+
+                return `
+                <div class="skill-item-container">
+                    <div class="skill-info-top">
+                        <span class="skill-name">${skillName}</span>
+                        <div class="autonomy-dots">${dots}</div>
                     </div>
-                    <div class="project-overlay">
-                        <a href="${project.link}" class="project-link-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                <polyline points="15 3 21 3 21 9"></polyline>
-                                <line x1="10" y1="14" x2="21" y2="3"></line>
-                            </svg>
-                        </a>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" style="width: ${level}%"></div>
                     </div>
-                </div>
-                <div class="project-info">
-                    <div class="project-tags">
-                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                    </div>
-                    <h3 data-en="${this.escapeHtml(project.title.en)}" 
-                        data-fr="${this.escapeHtml(project.title.fr)}">
-                        ${this.getText(project.title)}
-                    </h3>
-                    <p data-en="${this.escapeHtml(project.description.en)}" 
-                       data-fr="${this.escapeHtml(project.description.fr)}">
-                        ${this.getText(project.description)}
-                    </p>
-                    <a href="${project.link}" class="project-link">
-                        <span data-en="Learn more" data-fr="En savoir plus">Learn more</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </a>
-                </div>
-            </article>
-        `).join('');
+                </div>`;
+            }).join('')}
+        </div>
+    </div>
+`).join('');
     }
 
     // ========================================
