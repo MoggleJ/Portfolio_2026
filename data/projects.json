@@ -7,11 +7,15 @@
         "fr": "Système de Communication Embarqué Sécurisé"
       },
       "description": {
-        "en": "Developing a client software using EST APIs for a proof of concept focused on securing communication in railway on-board systems. Implementing encryption and authentication protocols for ITxPT-compliant equipment.",
-        "fr": "Développement d'un logiciel client utilisant les API EST pour une preuve de concept axée sur la sécurisation des communications dans les systèmes ferroviaires embarqués. Mise en œuvre de protocoles de chiffrement et d'authentification pour équipements conformes ITxPT."
+        "en": "Developing a client software using EST APIs for a proof of concept focused on securing communication in railway on-board systems. Implementing encryption, cryptographic protocols, and mutual authentication using certificates (MTLS)",
+        "fr": "Développement d'un logiciel client utilisant les API EST pour une preuve de concept axée sur la sécurisation des communications dans les systèmes ferroviaires embarqués. Mise en œuvre de protocoles de chiffrement et d'authentification mutuelle à l'aide de certificats (MTLS)"
       },
-      "tags": ["Security", "EST API", "PoC", "Tests", "ITxPT"],
+      "tags": {
+        "en": ["Security", "EST API", "Tests", "Python", "Docker", "MTLS"],
+        "fr": ["Sécurité", "API EST","Tests", "Python", "Docker", "MTLS"]
+      },
       "icon": "🔐",
+      "img" : null,
       "gradient": "jade-magenta",
       "link": "#contact"
     },
@@ -22,13 +26,17 @@
         "fr": "Jeu Pictionary Connecté"
       },
       "description": {
-        "en": "Collaborative mechatronic project combining embedded systems with network programming. Real-time multiplayer game with synchronized drawing, using client-server architecture and embedded controllers for interactive gameplay.",
-        "fr": "Projet mécatronique collaboratif combinant systèmes embarqués et programmation réseau. Jeu multijoueur temps réel avec dessin synchronisé, utilisant une architecture client-serveur et contrôleurs embarqués pour un gameplay interactif."
+        "en": "Collaborative mechatronic project combining embedded systems with bluetooth programming. Real-time game with motorized drawing and image processing, using Arduino controllers.",
+        "fr": "Projet mécatronique collaboratif combinant systèmes embarqués et programmation réseau. Jeu multijoueur temps réel avec dessin motorisé et traitement d'images, utilisant des contrôleurs Arduino."
       },
-      "tags": ["IoT", "Networking", "Mechatronics"],
-      "icon": "🎮",
+      "tags": {
+        "en": ["Mechatronics", "Bluetooth", "Real-time", "Image Processing"],
+        "fr": ["Mécatronique", "Bluetooth", "Temps réel", "Traitement d'images"]
+      },
+      "icon": "🕹️",
+      "img" : "/images/pictionnary.png",
       "gradient": "magenta-jade",
-      "link": "#contact"
+      "link": "https://github.com/MoggleJ/Pictionnary.git"
     },
     {
       "id": "autonomous-vehicles",
@@ -37,11 +45,16 @@
         "fr": "Systèmes de Véhicules Autonomes"
       },
       "description": {
-        "en": "Personal projects featuring various autonomous vehicles built with Arduino. Integrated sensors for navigation, obstacle avoidance, and path planning. Combined with custom 3D-modeled chassis and mechanical components.",
-        "fr": "Projets personnels présentant divers véhicules autonomes construits avec Arduino. Capteurs intégrés pour la navigation, l'évitement d'obstacles et la planification de trajectoire. Combinés avec châssis personnalisés modélisés en 3D et composants mécaniques."
+        "en": "Personal projects featuring various autonomous vehicles built with Arduino. Integrated sensors for navigation, obstacle avoidance, path planning, remote control and autonomous behavior. Combined with custom 3D-modeled components.",
+        "fr": "Projets personnels présentant divers véhicules autonomes construits avec Arduino. Intégration de capteurs pour la navigation, l'évitement d'obstacles, la planification de trajectoire, le contrôle à distance et le comportement autonome. Combinés avec des composants modélisés en 3D personnalisés."
       },
-      "tags": ["Arduino", "Robotics", "3D Modeling"],
+      "tags": {
+        "en": ["Arduino", "Vehicles", "Robotics", "3D Modeling"],
+        "fr": ["Arduino",  "Véhicules", "Robotique", "Modélisation 3D"]
+      },
+
       "icon": "🚗",
+      "img" : null,
       "gradient": "cyan-jade",
       "link": "#contact"
     },
@@ -52,13 +65,17 @@
         "fr": "Console de Jeu Portable Personnalisée"
       },
       "description": {
-        "en": "Designed and built a portable game console from scratch using Arduino and custom PCB. Features LCD display, button controls, sound output, and multiple playable games. Includes 3D-printed enclosure and optimized low-level code for performance.",
-        "fr": "Conception et construction d'une console de jeu portable à partir de zéro en utilisant Arduino et PCB personnalisé. Dispose d'un écran LCD, de contrôles boutons, d'une sortie son et de plusieurs jeux jouables. Comprend un boîtier imprimé en 3D et du code bas niveau optimisé pour les performances."
+        "en": "Designed and built a portable game console using Arduino. Features LCD display, button controls, sound output, and multiple playable games. Has yet to include 3D-printed enclosure and optimized low-level code for performance.",
+        "fr": "Conception et construction d'une console de jeu portable utilisant Arduino. Comprend un écran LCD, des commandes à boutons, une sortie sonore et plusieurs jeux jouables. Doit encore inclure un boîtier imprimé en 3D et un code bas niveau optimisé pour les performances."
       },
-      "tags": ["Embedded", "Hardware", "C/C++"],
-      "icon": "🕹️",
+      "tags": {
+        "en": ["Embedded", "Hardware", "Game console", "C/C++"],
+        "fr": ["Embarqué", "Matériel", "Console de jeu", "C/C++"]
+      },
+      "icon": "🎮",
+      "img" : null,
       "gradient": "magenta-cyan",
-      "link": "#contact"
+      "link": "https://github.com/MoggleJ/Console_SpaceInvidersVersion.git"
     },
     {
       "id": "card-display-system",
@@ -67,27 +84,16 @@
         "fr": "Système d'Affichage de Cartes Automatisé"
       },
       "description": {
-        "en": "Collaborative mechatronic project featuring an automated system for displaying cards. Integrated servo motors, sensors, and microcontroller programming for precise control and synchronized movements. Team-based development with mechanical design integration.",
-        "fr": "Projet mécatronique collaboratif présentant un système automatisé pour l'affichage de cartes. Moteurs servo intégrés, capteurs et programmation de microcontrôleur pour un contrôle précis et des mouvements synchronisés. Développement en équipe avec intégration de conception mécanique."
+        "en": "Collaborative mechatronic project featuring an automated system for displaying cards. Using NFC technology for card detection, LCD display for visual feedback, and 3D-printing.",
+        "fr": "Projet mécatronique collaboratif présentant un système automatisé pour l'affichage de cartes. Utilisation de la technologie NFC pour la détection des cartes, d'un écran LCD pour le retour visuel, et de l'impression 3D."
       },
-      "tags": ["Mechatronics", "Automation", "Motors"],
+      "tags": {
+        "en": ["Mechatronics", "Arduino", "3D Modeling"],
+        "fr": ["Mécatronique", "Arduino", "Modélisation 3D"]
+      },
       "icon": "🎴",
+      "img" : "/images/pokeball.png",
       "gradient": "jade-cyan",
-      "link": "#contact"
-    },
-    {
-      "id": "multi-platform-apps",
-      "title": {
-        "en": "Cross-Platform Software Development",
-        "fr": "Développement Logiciel Multi-plateforme"
-      },
-      "description": {
-        "en": "Various applications developed for Linux and Windows environments using multiple programming languages. Includes games, utilities, and networked applications with client-server architecture. Focus on code quality, version control, and documentation.",
-        "fr": "Diverses applications développées pour environnements Linux et Windows utilisant plusieurs langages de programmation. Comprend jeux, utilitaires et applications en réseau avec architecture client-serveur. Focus sur la qualité du code, le contrôle de version et la documentation."
-      },
-      "tags": ["JavaScript", "Python", "Java"],
-      "icon": "💻",
-      "gradient": "cyan-magenta",
       "link": "#contact"
     }
   ]

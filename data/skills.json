@@ -8,12 +8,14 @@
         "fr": "Embarqué & Bas Niveau"
       },
       "skills": [
-        { "name": "C / C++", "autonomy_level": 5, "mastery_level": 95 },
-        { "name": "Arduino", "autonomy_level": 5, "mastery_level": 95 },
-        { "name": "STM32", "autonomy_level": 4, "mastery_level": 80 },
-        { "name": "Assembly", "autonomy_level": 3, "mastery_level": 65 },
-        { "name": "RTOS", "autonomy_level": 3, "mastery_level": 70 },
-        { "name": { "en": "IoT Protocols", "fr": "Protocoles IoT" }, "autonomy_level": 3, "mastery_level": 75 }
+        { "name": "C", "autonomy_level": 4 },
+        { "name": "C++", "autonomy_level": 4 },
+        { "name": "Arduino", "autonomy_level": 4},
+        { "name": "Python", "autonomy_level": 4 },
+        { "name": "STM32", "autonomy_level": 3 },
+          { "name": "Assembly", "autonomy_level": 3 },
+          { "name": "RTOS", "autonomy_level": 2}
+        
       ]
     },
     {
@@ -24,13 +26,56 @@
         "fr": "Développement Logiciel & Web"
       },
       "skills": [
-        { "name": "Python", "autonomy_level": 5, "mastery_level": 90 },
-        { "name": "JavaScript", "autonomy_level": 5, "mastery_level": 85 },
-        { "name": "TypeScript", "autonomy_level": 4, "mastery_level": 80 },
-        { "name": "Node.js", "autonomy_level": 4, "mastery_level": 75 },
-        { "name": "Angular", "autonomy_level": 4, "mastery_level": 75 },
-        { "name": "Java", "autonomy_level": 4, "mastery_level": 70 },
-        { "name": "HTML / CSS", "autonomy_level": 5, "mastery_level": 90 }
+        { "name": "JavaScript", "autonomy_level": 3 },
+        { "name": "TypeScript", "autonomy_level": 3 },
+        { "name": "Node.js", "autonomy_level": 3 },
+        { "name": "Angular", "autonomy_level": 3 },
+        { "name": "Java", "autonomy_level": 4 },
+        { "name": "HTML / CSS", "autonomy_level": 4 },
+        { "name": "Kotlin", "autonomy_level": 3 }
+      ]
+    },
+     {
+      "id": "tools",
+      "icon": "🛠️",
+      "title": {
+        "en": "Tools",
+        "fr": "Outils"
+      },
+      "skills": [
+        { "name": "Git / GitHub / GitLab", "autonomy_level": 4 },
+        { "name": "Visual Studio Code", "autonomy_level": 4 },
+        { "name": "STM32CubeIDE", "autonomy_level": 2 },
+        { "name": "IntelliJ IDEA", "autonomy_level": 4 },
+        { "name": "Arduino IDE", "autonomy_level": 4 },
+        { "name": "Scanner 3D", "autonomy_level": 2 },
+        { "name": "Logiciels de CAO (Fusion 360, SolidWorks)", "autonomy_level": 3 }
+      ]
+    },
+     {
+      "id": "databases",
+      "icon": "📚",
+      "title": {
+        "en": "Databases",
+        "fr": "Bases de Données"
+      },
+      "skills": [
+        { "name": "MySQL", "autonomy_level": 4 },
+        { "name": "MongoDB", "autonomy_level": 3 }
+      ]
+    },
+    {
+      "id": "devops-platforms",
+      "icon": "💻",
+      "title": {
+      "en": "Infrastructure & DevOps",
+      "fr": "Infrastructure & DevOps"
+      },
+      "skills": [
+      { "name": "Linux", "autonomy_level": 4 },
+      { "name": "Windows", "autonomy_level": 4 },
+      { "name": "Docker", "autonomy_level": 3 },
+      { "name": "Kubernetes", "autonomy_level": 2 }
       ]
     },
     {
@@ -41,38 +86,25 @@
         "fr": "Instrumentation & Analyse"
       },
       "skills": [
-        { "name": "LabVIEW", "autonomy_level": 4, "mastery_level": 85 },
-        { "name": "Windows CVI", "autonomy_level": 4, "mastery_level": 80 },
-        { "name": "MATLAB", "autonomy_level": 3, "mastery_level": 75 },
-        { "name": "Simulink", "autonomy_level": 3, "mastery_level": 70 }
-      ]
-    },
-    {
-      "id": "devops-platforms",
-      "icon": "🚀",
-      "title": {
-        "en": "Infrastructure & Ops",
-        "fr": "Infrastructure & Ops"
-      },
-      "skills": [
-        { "name": "Git / GitHub / GitLab", "autonomy_level": 5, "mastery_level": 95 },
-        { "name": "Linux", "autonomy_level": 5, "mastery_level": 90 },
-        { "name": "Windows", "autonomy_level": 5, "mastery_level": 95 },
-        { "name": "Docker", "autonomy_level": 3, "mastery_level": 60 }
+        { "name": "LabVIEW", "autonomy_level": 3 },
+        { "name": "Windows CVI", "autonomy_level": 3 },
+        { "name": "MATLAB", "autonomy_level": 3 },
+        { "name": "Simulink", "autonomy_level": 3 }
       ]
     },
     {
       "id": "professional-soft",
       "icon": "🎯",
       "title": {
-        "en": "Professional Expertise",
-        "fr": "Expertise Métier"
+        "en": "Other technical skills",
+        "fr": "Autres compétences techniques"
       },
       "skills": [
-        { "name": { "en": "Safety Compliance", "fr": "Conformité Sécurité" }, "autonomy_level": 5, "mastery_level": 90 },
-        { "name": { "en": "Quality Control", "fr": "Contrôle Qualité" }, "autonomy_level": 5, "mastery_level": 85 },
-        { "name": { "en": "Network Design", "fr": "Conception Réseau" }, "autonomy_level": 4, "mastery_level": 80 },
-        { "name": { "en": "Code Organization", "fr": "Organisation Code" }, "autonomy_level": 5, "mastery_level": 95 }
+        { "name": { "en": "Network Programming", "fr": "Programmation Réseau" }, "autonomy_level": 3 },
+        { "name": { "en": "Cybersecurity", "fr": "Sécurité Informatique" }, "autonomy_level": 3 },
+        { "name": { "en": "Concurrent Programming", "fr": "Programmation Concurrente" }, "autonomy_level": 3 },
+        { "name": { "en": "Test Programming", "fr": "Programmation de Tests" }, "autonomy_level": 2 },
+        { "name": {"en" : "AI (Deep and Machine Learning)", "fr": "IA (Apprentissage Profond et Apprentissage Automatique)"}, "autonomy_level": 3 }
       ]
     },
     {
@@ -83,9 +115,9 @@
         "fr": "Communication"
       },
       "skills": [
-        { "name": { "en": "French (Native)", "fr": "Français (Natif)" }, "autonomy_level": 5, "mastery_level": 100 },
-        { "name": { "en": "English (C1 - 940)", "fr": "Anglais (C1 - 940)" }, "autonomy_level": 5, "mastery_level": 95 },
-        { "name": { "en": "Spanish (B2)", "fr": "Espagnol (B2)" }, "autonomy_level": 3, "mastery_level": 65 }
+        { "name": { "en": "French (Native)", "fr": "Français (Natif)" }, "autonomy_level": 4 },
+        { "name": { "en": "English (C1 - 940)", "fr": "Anglais (C1 - 940)" }, "autonomy_level": 4 },
+        { "name": { "en": "Spanish (B2)", "fr": "Espagnol (B2)" }, "autonomy_level": 4 }
       ]
     }
   ]

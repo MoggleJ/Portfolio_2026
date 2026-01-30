@@ -56,47 +56,50 @@ class PortfolioDataLoader {
     // Render Projects
     // ========================================
     renderProjects() {
-        const container = document.getElementById('projects-container');
-        if (!container || !this.data.projects) return;
+    const container = document.getElementById('projects-container');
+    if (!container || !this.data.projects) return;
 
-        container.innerHTML = this.data.projects.map((project, index) => `
-            <article class="project-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
-                <div class="project-image">
-                    <div class="placeholder-project gradient-${project.gradient}">
+    container.innerHTML = this.data.projects.map((project, index) => `
+        <article class="project-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
+            <div class="project-image">
+                ${project.img ? 
+                    `<img src="${project.img}" alt="${this.escapeHtml(project.title.en)}" class="project-img-src">` : 
+                    `<div class="placeholder-project gradient-${project.gradient}">
                         <span>${project.icon}</span>
-                    </div>
-                    <div class="project-overlay">
-                        <a href="${project.link}" class="project-link-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                <polyline points="15 3 21 3 21 9"></polyline>
-                                <line x1="10" y1="14" x2="21" y2="3"></line>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <div class="project-tags">
-                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                    </div>
-                    <h3 data-en="${this.escapeHtml(project.title.en)}" 
-                        data-fr="${this.escapeHtml(project.title.fr)}">
-                        ${this.getText(project.title)}
-                    </h3>
-                    <p data-en="${this.escapeHtml(project.description.en)}" 
-                       data-fr="${this.escapeHtml(project.description.fr)}">
-                        ${this.getText(project.description)}
-                    </p>
-                    <a href="${project.link}" class="project-link">
-                        <span data-en="Learn more" data-fr="En savoir plus">Learn more</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </div>`
+                }
+                <div class="project-overlay">
+                    <a href="${project.link}" class="project-link-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
                         </svg>
                     </a>
                 </div>
-            </article>
-        `).join('');
-    }
+            </div>
+            <div class="project-info">
+                ${(() => {
+                    const tags = this.normalizeTags(project.tags);
+                    const tagsHtml = tags.map(t => this.getTagHtml(t, 'tag', '#')).join(' ');
+                    return `<div class="project-tags">${tagsHtml}</div>`;
+                })()}
+                <h3 data-en="${this.escapeHtml(project.title.en)}" data-fr="${this.escapeHtml(project.title.fr)}">
+                    ${this.getText(project.title)}
+                </h3>
+                <p data-en="${this.escapeHtml(project.description.en)}" data-fr="${this.escapeHtml(project.description.fr)}">
+                    ${this.getText(project.description)}
+                </p>
+                <a href="${project.link}" class="project-link">
+                    <span data-en="Learn more" data-fr="En savoir plus">Learn more</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </article>
+    `).join('');
+}
 
     // ========================================
     // Render Skills
@@ -124,11 +127,12 @@ class PortfolioDataLoader {
                             const skillName = this.getText(skill.name);
                             const autonomy = skill.autonomy_level || 0;
                             const mastery = skill.mastery_level || 0;
+                            const autonomy_label = this.getAutonomyLabel(autonomy);
 
-                            // Génération des 5 points LED pour l'autonomie
+                            // Génération des 5 points LED pour l'autonomie (data-active pour animation)
                             let dotsHTML = '';
                             for (let i = 1; i <= 5; i++) {
-                                dotsHTML += `<span class="dot ${i <= autonomy ? 'active' : ''}"></span>`;
+                                dotsHTML += `<span class="dot" data-active="${i <= autonomy ? 1 : 0}"></span>`;
                             }
 
                             // Préparation des attributs de langue pour le nom du skill (si c'est un objet)
@@ -137,34 +141,87 @@ class PortfolioDataLoader {
                                 : '';
 
                             return `
-                            <div class="skill-item-box">
-                                <div class="skill-info-top">
-                                    <span class="skill-name" ${langAttrs}>${skillName}</span>
-                                    <div class="autonomy-dots" title="Autonomie: ${autonomy}/5">
-                                        ${dotsHTML}
-                                    </div>
-                                </div>
-                                <div class="skill-bar-bg">
-                                    <div class="skill-bar-fill" style="width: ${mastery}%"></div>
-                                </div>
-                            </div>`;
-                        }).join('')}
+                                                        <div class="skill-item-box">
+                                                            <div class="skill-info-top">
+                                                                <span class="skill-name" ${langAttrs}>${skillName}</span>
+                                                                <div class="skill-autonomy">
+                                                                    <div class="autonomy-dots" title="Autonomy: ${autonomy}/5">
+                                                                        ${dotsHTML}
+                                                                    </div>
+                                                                    <div class="autonomy-meta">
+                                                                        <span class="autonomy-text" data-en="${this.escapeHtml(autonomy_label.en)}" data-fr="${this.escapeHtml(autonomy_label.fr)}">${autonomy_label[this.currentLang]}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>`;   }).join('')}
                     </div>
                 </div>`;
             }).join('')}
         </div>
     `;
+    // Animate skill fills and autonomy dots
+    this.animateSkillFills(container);
 }
 
-// Petite fonction utilitaire pour sécuriser l'insertion de texte dans les data-attributes
-escapeHtml(unsafe) {
-    return unsafe
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-}
+normalizeTags(tags) {
+        if (!tags) return [];
+        if (typeof tags === 'object' && !Array.isArray(tags) && (Array.isArray(tags.en) || Array.isArray(tags.fr))) {
+            const en = Array.isArray(tags.en) ? tags.en : [];
+            const fr = Array.isArray(tags.fr) ? tags.fr : en.slice();
+            const max = Math.max(en.length, fr.length);
+            const out = [];
+            for (let i = 0; i < max; i++) {
+                out.push({
+                    en: en[i] || fr[i] || '',
+                    fr: fr[i] || en[i] || ''
+                });
+            }
+            return out;
+        }
+        if (Array.isArray(tags)) {
+            return tags.map(t => {
+                if (typeof t === 'string') return { en: t, fr: t };
+                if (typeof t === 'object') return { en: t.en || t.fr || '', fr: t.fr || t.en || '' };
+                return { en: String(t), fr: String(t) };
+            });
+        }
+        if (typeof tags === 'string') return [{ en: tags, fr: tags }];
+        return [];
+    }
+
+    getTagHtml(tag, className = 'tag', prefix = '') {
+        const en = this.escapeHtml(tag.en || '');
+        const fr = this.escapeHtml(tag.fr || '');
+        const text = this.escapeHtml(tag[this.currentLang] || tag.en || '');
+        return `<span class="${className}" data-en="${en}" data-fr="${fr}">${prefix}${text}</span>`;
+    }
+
+    getAutonomyLabel(level) {
+        const labels = {
+            1: { en: "With help", fr: "Avec de l'aide" },
+            2: { en: "Supervised",        fr: "Supervisée" },
+            3: { en: "Autonomous",        fr: "Autonome" },
+            4: { en: "Very autonomous",   fr: "Très autonome" },
+            5: { en: "Supervisor",        fr: "Superviseur" }
+        };
+        return labels[level] || { en: "", fr: "" };
+    }
+
+    animateSkillFills(container) {
+
+        
+        // Animate dots per autonomy with stagger
+        const dotGroups = container.querySelectorAll('.autonomy-dots');
+        dotGroups.forEach(group => {
+            const dots = Array.from(group.querySelectorAll('.dot'));
+            dots.forEach((dot, idx) => {
+                const isActive = dot.getAttribute('data-active') === '1';
+                if (isActive) {
+                    setTimeout(() => dot.classList.add('active'), idx * 80);
+                }
+            });
+        });
+    }
     // ========================================
     // Render Experience
     // ========================================
@@ -200,11 +257,13 @@ escapeHtml(unsafe) {
                     <ul>
                         ${this.getText(exp.description).map(item => `<li>${item}</li>`).join('')}
                     </ul>
-                    ${exp.tags.length > 0 ? `
+                    ${(() => {
+                        const tags = this.normalizeTags(exp.tags);
+                        return tags.length > 0 ? `
                         <div class="keywords">
-                            ${exp.tags.map(tag => `<span class="keyword">${tag}</span>`).join('')}
-                        </div>
-                    ` : ''}
+                            ${tags.map(t => this.getTagHtml(t, 'keyword', '#')).join(' ')}
+                        </div>` : '';
+                    })()}
                 </div>
             </div>
         `).join('');

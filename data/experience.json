@@ -24,7 +24,10 @@
           "Travail sur des systèmes embarqués dans le contexte du transport ferroviaire"
         ]
       },
-      "tags": ["Embedded Systems", "Networks", "ITxPT", "Tests", "Security"],
+      "tags": {
+        "en": ["Embedded Systems", "Networks", "ITxPT", "Tests", "Security"],
+        "fr": ["Systèmes Embarqués", "Réseaux", "ITxPT", "Tests", "Sécurité"]
+      },
       "logo": "LOGO-SNCF-VOYAGEURS.jpg"
     },
     {
@@ -41,19 +44,22 @@
       "current": true,
       "description": {
         "en": [
-          "Developing applications in JavaScript, TypeScript, Java, Python, and C",
+          "Developing applications, from embedded systems to web development, using mostly JavaScript, TypeScript, Java, Python, and C but also other languages",
           "Working with Raspberry Pi, Arduino, and STM32 Discovery boards",
           "Collaborating on mechatronic projects including automated systems and connected games",
           "Personal projects: autonomous vehicles, handheld game consoles, 3D modeling"
         ],
         "fr": [
-          "Développement d'applications en JavaScript, TypeScript, Java, Python et C",
+          "Développement d'applications, des systèmes embarqués au développement web, utilisant principalement JavaScript, TypeScript, Java, Python et C mais aussi d'autres langages",
           "Travail avec Raspberry Pi, Arduino et cartes STM32 Discovery",
           "Collaboration sur des projets mécatroniques incluant systèmes automatisés et jeux connectés",
           "Projets personnels : véhicules autonomes, consoles de jeu portables, modélisation 3D"
         ]
       },
-      "tags": ["Multi-platform", "IoT", "Mechatronics"],
+      "tags": {
+        "en": ["Multi-platform", "Multi-language", "IoT", "Mechatronics", "Embedded Systems", "Web Development", "3D Modeling"],
+        "fr": ["Multi-plateformes", "Multi-langages", "IoT", "Mécatronique", "Systèmes Embarqués", "Développement Web", "Modélisation 3D"]
+      },
       "logo": "LOGO-ENSIM.jpg"
     },
     {
@@ -95,14 +101,17 @@
         "fr": "Lycée André Malraux"
       },
       "location": "Allonnes, France",
-      "startDate": "2022",
+      "startDate": "2019",
       "endDate": "2022",
       "current": false,
       "description": {
         "en": ["Physics-Chemistry, Mathematics specialties"],
         "fr": ["Spécialités Physique-Chimie, Mathématiques"]
       },
-      "tags": [],
+      "tags": {
+        "en": ["Diploma", "A-level"],
+        "fr": ["Diplôme", "Baccalauréat"]
+      },
       "logo": "LOGO-MALRAUX.jpg"
     }
   ]
