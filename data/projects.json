@@ -95,6 +95,29 @@
       "img" : "/images/pokeball.png",
       "gradient": "jade-cyan",
       "link": "#contact"
+    },
+    {
+      "id": "ai-othello",
+      "title": {
+        "en": "AI Othello Player",
+        "fr": "Joueur d'Othello IA"
+      },
+      "description": {
+        "en": "AI player for an Othello board game. Implemented after testing and training various Models, such as MLP, LSTM, CNN, CNN-LSTM, Transformer, ..., with different hyperparameters and architectures to optimize performance.",
+        "fr": "Joueur IA d'Othello. Implémenté après avoir testé et entraîné divers modèles, tels que MLP, LSTM, CNN, CNN-LSTM, Transformer, ..., avec différents hyperparamètres et architectures pour optimiser les performances."
+      },
+      "tags": {
+        "en": ["IA", "Deep Learning", "Game", "Python"],
+        "fr": ["Intelligence Artificielle", "Apprentissage Profond", "Jeu", "Python"]
+      },
+      "icon": "🧠",
+      "img" : "/images/ia-othello.gif",
+      "gradient": "jade-cyan",
+      "link": "https://github.com/MoggleJ/IA-Othello-Player.git"
     }
+  
   ]
+
+  
+
 }
