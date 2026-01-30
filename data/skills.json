@@ -1,162 +1,91 @@
 {
   "skillCategories": [
     {
-      "id": "programming",
-      "icon": "💻",
+      "id": "low-level-embedded",
+      "icon": "📟",
       "title": {
-        "en": "Programming Languages",
-        "fr": "Langages de Programmation"
+        "en": "Embedded & Low Level",
+        "fr": "Embarqué & Bas Niveau"
       },
       "skills": [
-        { "name": "Python", "autonomy_level": 5 },
-        { "name": "C / C++", "autonomy_level": 5 },
-        { "name": "JavaScript", "autonomy_level": 5 },
-        { "name": "Java", "autonomy_level": 4 },
-        { "name": "TypeScript", "autonomy_level": 4 },
-        { "name": "HTML / CSS", "autonomy_level": 3 },
-        { "name": "Arduino", "autonomy_level": 3 },
-        { "name": "Assembly", "autonomy_level": 3 }
+        { "name": "C / C++", "autonomy_level": 5, "mastery_level": 95 },
+        { "name": "Arduino", "autonomy_level": 5, "mastery_level": 95 },
+        { "name": "STM32", "autonomy_level": 4, "mastery_level": 80 },
+        { "name": "Assembly", "autonomy_level": 3, "mastery_level": 65 },
+        { "name": "RTOS", "autonomy_level": 3, "mastery_level": 70 },
+        { "name": { "en": "IoT Protocols", "fr": "Protocoles IoT" }, "autonomy_level": 3, "mastery_level": 75 }
       ]
     },
     {
-      "id": "frameworks",
-      "icon": "🛠️",
+      "id": "software-web",
+      "icon": "🌐",
       "title": {
-        "en": "Frameworks & Tools",
-        "fr": "Frameworks & Outils"
+        "en": "Software & Web Development",
+        "fr": "Développement Logiciel & Web"
       },
       "skills": [
-        { "name": "Node.js", "autonomy_level": 4 },
-        { "name": "Angular", "autonomy_level": 4 },
-        { "name": "LabVIEW", "autonomy_level": 3 },
-        { "name": "MATLAB/Simulink", "autonomy_level": 3 },
-        { "name": "Windows CVI", "autonomy_level": 3 },
-        { "name": "Git / GitHub / GitLab", "autonomy_level": 5 },
-        { "name": "Docker", "autonomy_level": 3 }
+        { "name": "Python", "autonomy_level": 5, "mastery_level": 90 },
+        { "name": "JavaScript", "autonomy_level": 5, "mastery_level": 85 },
+        { "name": "TypeScript", "autonomy_level": 4, "mastery_level": 80 },
+        { "name": "Node.js", "autonomy_level": 4, "mastery_level": 75 },
+        { "name": "Angular", "autonomy_level": 4, "mastery_level": 75 },
+        { "name": "Java", "autonomy_level": 4, "mastery_level": 70 },
+        { "name": "HTML / CSS", "autonomy_level": 5, "mastery_level": 90 }
       ]
     },
     {
-      "id": "embedded",
-      "icon": "⚡",
+      "id": "instrumentation",
+      "icon": "🔬",
       "title": {
-        "en": "Embedded Systems",
-        "fr": "Systèmes Embarqués"
+        "en": "Instrumentation & Analysis",
+        "fr": "Instrumentation & Analyse"
       },
       "skills": [
-        { "name": "Arduino", "autonomy_level": 5 },
-        { "name": "Raspberry Pi", "autonomy_level": 5 },
-        { "name": "STM32", "autonomy_level": 4 },
-        { 
-          "name": {
-            "en": "IoT Protocols",
-            "fr": "Protocoles IoT"
-          }, 
-          "autonomy_level": 3 
-        },
-        { "name": "RTOS", "autonomy_level": 3 },
-        { 
-          "name": {
-            "en": "Sensors & Actuators",
-            "fr": "Capteurs & Actionneurs"
-          }, 
-          "autonomy_level": 4 
-        }
+        { "name": "LabVIEW", "autonomy_level": 4, "mastery_level": 85 },
+        { "name": "Windows CVI", "autonomy_level": 4, "mastery_level": 80 },
+        { "name": "MATLAB", "autonomy_level": 3, "mastery_level": 75 },
+        { "name": "Simulink", "autonomy_level": 3, "mastery_level": 70 }
       ]
     },
     {
-      "id": "platforms",
-      "icon": "🖥️",
+      "id": "devops-platforms",
+      "icon": "🚀",
       "title": {
-        "en": "Platforms & OS",
-        "fr": "Plateformes & OS"
+        "en": "Infrastructure & Ops",
+        "fr": "Infrastructure & Ops"
       },
       "skills": [
-        { "name": "Linux", "autonomy_level": 5 },
-        { "name": "Windows", "autonomy_level": 5 },
-        { "name": "Docker", "autonomy_level": 3 },
-        { 
-          "name": {
-            "en": "Cross-platform Dev",
-            "fr": "Dév. Multi-plateforme"
-          }, 
-          "autonomy_level": 3 
-        }
+        { "name": "Git / GitHub / GitLab", "autonomy_level": 5, "mastery_level": 95 },
+        { "name": "Linux", "autonomy_level": 5, "mastery_level": 90 },
+        { "name": "Windows", "autonomy_level": 5, "mastery_level": 95 },
+        { "name": "Docker", "autonomy_level": 3, "mastery_level": 60 }
       ]
     },
     {
-      "id": "languages",
-      "icon": "🌍",
-      "title": {
-        "en": "Languages",
-        "fr": "Langues"
-      },
-      "skills": [
-        { 
-          "name": {
-            "en": "French (Native)",
-            "fr": "Français (Natif)"
-          }, 
-          "autonomy_level": 5 
-        },
-        { 
-          "name": {
-            "en": "English (TOEIC 940)",
-            "fr": "Anglais (TOEIC 940)"
-          }, 
-          "autonomy_level": 5 
-        },
-        { 
-          "name": {
-            "en": "Spanish (B2)",
-            "fr": "Espagnol (B2)"
-          }, 
-          "autonomy_level": 4 
-        }
-      ]
-    },
-    {
-      "id": "professional",
+      "id": "professional-soft",
       "icon": "🎯",
       "title": {
-        "en": "Professional Skills",
-        "fr": "Compétences Professionnelles"
+        "en": "Professional Expertise",
+        "fr": "Expertise Métier"
       },
       "skills": [
-        { 
-          "name": {
-            "en": "Safety Compliance",
-            "fr": "Conformité Sécurité"
-          }, 
-          "autonomy_level": 5 
-        },
-        { 
-          "name": {
-            "en": "Quality Control",
-            "fr": "Contrôle Qualité"
-          }, 
-          "autonomy_level": 5 
-        },
-        { 
-          "name": {
-            "en": "Time Management",
-            "fr": "Gestion du Temps"
-          }, 
-          "autonomy_level": 5 
-        },
-        { 
-          "name": {
-            "en": "Network Design",
-            "fr": "Conception Réseau"
-          }, 
-          "autonomy_level": 5 
-        },
-        { 
-          "name": {
-            "en": "Code Organization",
-            "fr": "Organisation du Code"
-          }, 
-          "autonomy_level": 5 
-        }
+        { "name": { "en": "Safety Compliance", "fr": "Conformité Sécurité" }, "autonomy_level": 5, "mastery_level": 90 },
+        { "name": { "en": "Quality Control", "fr": "Contrôle Qualité" }, "autonomy_level": 5, "mastery_level": 85 },
+        { "name": { "en": "Network Design", "fr": "Conception Réseau" }, "autonomy_level": 4, "mastery_level": 80 },
+        { "name": { "en": "Code Organization", "fr": "Organisation Code" }, "autonomy_level": 5, "mastery_level": 95 }
+      ]
+    },
+    {
+      "id": "human-languages",
+      "icon": "🌍",
+      "title": {
+        "en": "Communication",
+        "fr": "Communication"
+      },
+      "skills": [
+        { "name": { "en": "French (Native)", "fr": "Français (Natif)" }, "autonomy_level": 5, "mastery_level": 100 },
+        { "name": { "en": "English (C1 - 940)", "fr": "Anglais (C1 - 940)" }, "autonomy_level": 5, "mastery_level": 95 },
+        { "name": { "en": "Spanish (B2)", "fr": "Espagnol (B2)" }, "autonomy_level": 3, "mastery_level": 65 }
       ]
     }
   ]
