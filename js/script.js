@@ -63,7 +63,7 @@ class PortfolioDataLoader {
         <article class="project-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
             <div class="project-image">
                 ${project.img ? 
-                    `<img src="${project.img}" alt="${this.escapeHtml(project.title.en)}" class="project-img-src">` : 
+                    `<img src="https://mogglej.github.io/Portfolio_2026${project.img}" alt="${this.escapeHtml(project.title.en)}" class="project-img-src">` : 
                     `<div class="placeholder-project gradient-${project.gradient}">
                         <span>${project.icon}</span>
                     </div>`

@@ -34,7 +34,7 @@
         "fr": ["Mécatronique", "Bluetooth", "Temps réel", "Traitement d'images"]
       },
       "icon": "🕹️",
-      "img" : "https://mogglej.github.io/Portfolio_2026/images/pictionnary.png",
+      "img" : "/images/pictionnary.png",
       "gradient": "magenta-jade",
       "link": "https://github.com/MoggleJ/Pictionnary.git"
     },
@@ -92,7 +92,7 @@
         "fr": ["Mécatronique", "Arduino", "Modélisation 3D"]
       },
       "icon": "🎴",
-      "img" : "https://mogglej.github.io/Portfolio_2026/images/pokeball.png",
+      "img" : "/images/pokeball.png",
       "gradient": "jade-cyan",
       "link": "#contact"
     },
@@ -111,7 +111,7 @@
         "fr": ["Intelligence Artificielle", "Apprentissage Profond", "Jeu", "Python"]
       },
       "icon": "🧠",
-      "img" : "https://mogglej.github.io/Portfolio_2026/images/ia-othello.gif",
+      "img" : "/images/ia-othello.gif",
       "gradient": "jade-cyan",
       "link": "https://github.com/MoggleJ/IA-Othello-Player.git"
     }
