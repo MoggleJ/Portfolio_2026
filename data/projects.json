@@ -10,7 +10,7 @@
         "en": "Developing a client software using EST APIs for a proof of concept focused on securing communication in railway on-board systems. Implementing encryption and authentication protocols for ITxPT-compliant equipment.",
         "fr": "Développement d'un logiciel client utilisant les API EST pour une preuve de concept axée sur la sécurisation des communications dans les systèmes ferroviaires embarqués. Mise en œuvre de protocoles de chiffrement et d'authentification pour équipements conformes ITxPT."
       },
-      "tags": ["Security", "EST API", "PoC", "ITxPT"],
+      "tags": ["Security", "EST API", "PoC", "Tests", "ITxPT"],
       "icon": "🔐",
       "gradient": "jade-magenta",
       "link": "#contact"
