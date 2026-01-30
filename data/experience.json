@@ -46,15 +46,13 @@
         "en": [
           "Developing applications, from embedded systems to web development, using mostly JavaScript, TypeScript, Java, Python, and C but also other languages",
           "Working with Raspberry Pi, Arduino, and STM32 Discovery boards",
-          "Collaborating on mechatronic projects including automated systems and connected games",
-          "Personal projects: autonomous vehicles, handheld game consoles, 3D modeling"
+          "Collaborating on mechatronic projects including automated systems and connected games"
         ],
         "fr": [
           "Développement d'applications, des systèmes embarqués au développement web, utilisant principalement JavaScript, TypeScript, Java, Python et C mais aussi d'autres langages",
           "Travail avec Raspberry Pi, Arduino et cartes STM32 Discovery",
-          "Collaboration sur des projets mécatroniques incluant systèmes automatisés et jeux connectés",
-          "Projets personnels : véhicules autonomes, consoles de jeu portables, modélisation 3D"
-        ]
+          "Collaboration sur des projets mécatroniques incluant systèmes automatisés et jeux connectés"
+                ]
       },
       "tags": {
         "en": ["Multi-platform", "Multi-language", "IoT", "Mechatronics", "Embedded Systems", "Web Development", "3D Modeling"],
@@ -105,8 +103,8 @@
       "endDate": "2022",
       "current": false,
       "description": {
-        "en": ["Physics-Chemistry, Mathematics specialties"],
-        "fr": ["Spécialités Physique-Chimie, Mathématiques"]
+        "en": "Physics-Chemistry, Mathematics specialties",
+        "fr": "Spécialités Physique-Chimie, Mathématiques"
       },
       "tags": {
         "en": ["Diploma", "A-level"],
