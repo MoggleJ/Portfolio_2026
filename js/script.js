@@ -104,25 +104,41 @@ class PortfolioDataLoader {
     renderSkills() {
         const container = document.getElementById('skills-container');
         if (!container || !this.data.skills) return;
-
         container.innerHTML = this.data.skills.map((category, index) => `
-            <div class="skill-category" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
-                <div class="category-icon">${category.icon}</div>
-                <h3 data-en="${this.escapeHtml(category.title.en)}" 
-                    data-fr="${this.escapeHtml(category.title.fr)}">
-                    ${this.getText(category.title)}
-                </h3>
-                <div class="skill-items">
-                    ${category.skills.map(skill => {
-                        const skillName = this.getText(skill.name);
-                        const dataAttrs = typeof skill.name === 'object' ? 
-                            `data-en="${this.escapeHtml(skill.name.en)}" data-fr="${this.escapeHtml(skill.name.fr)}"` : 
-                            '';
-                        return `<span class="skill-badge level-${skill.level}" ${dataAttrs}>${skillName}</span>`;
-                    }).join('')}
-                </div>
-            </div>
-        `).join('');
+    <div class="skill-category" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
+        <div class="category-icon">${category.icon}</div>
+        <h3 data-en="${this.escapeHtml(category.title.en)}" 
+            data-fr="${this.escapeHtml(category.title.fr)}">
+            ${this.getText(category.title)}
+        </h3>
+        <div class="skill-list-full">
+            ${category.skills.map(skill => {
+                const skillName = this.getText(skill.name);
+                const autonomyLevel = skill.autonomy || 3; // Par défaut 3/5
+                const masteryPercent = skill.mastery || 70; // Par défaut 70%
+
+                // Génération des 5 points d'autonomie
+                let dotsHTML = '';
+                for(let i=1; i<=5; i++) {
+                    dotsHTML += `<span class="dot ${i <= autonomyLevel ? 'active' : ''}"></span>`;
+                }
+
+                return `
+                <div class="skill-item-container">
+                    <div class="skill-info-top">
+                        <span class="skill-name">${skillName}</span>
+                        <div class="autonomy-dots" title="Autonomie: ${autonomyLevel}/5">
+                            ${dotsHTML}
+                        </div>
+                    </div>
+                    <div class="skill-bar-bg">
+                        <div class="skill-bar-fill" style="width: ${masteryPercent}%"></div>
+                    </div>
+                </div>`;
+            }).join('')}
+        </div>
+    </div>
+`).join('');
     }
 
     // ========================================
