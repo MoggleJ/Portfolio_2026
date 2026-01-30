@@ -1,4 +1,4 @@
-
+ 
 class PortfolioDataLoader {
     constructor() {
         this.currentLang = localStorage.getItem('preferredLang') || 'en';
