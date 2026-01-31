@@ -230,44 +230,43 @@ normalizeTags(tags) {
         if (!container || !this.data.experience) return;
 
         container.innerHTML = this.data.experience.map((exp, index) => `
-            <div class="experience-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
-                <div class="experience-header">
-                    ${exp.logo ? `
-                        <div class="company-logo">
-                            <img src="https://mogglej.github.io/Portfolio_2026/images/${exp.logo}" alt="${exp.company}">
+                    <div class="experience-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
+                        <div class="experience-header">
+                            ${exp.logo ? `
+                                <div class="company-logo">
+                                    <img src="https://mogglej.github.io/Portfolio_2026/images/${exp.logo}" alt="${exp.company}">
+                                </div>
+                            ` : `
+                                <div class="company-logo">
+                                    <span>${exp.type === 'work' ? '💼' : '🎓'}</span>
+                                </div>
+                            `}
+                            <div class="experience-meta">
+                                <h3 data-en="${this.escapeHtml(exp.title.en)}" 
+                                    data-fr="${this.escapeHtml(exp.title.fr)}">
+                                    ${this.getText(exp.title)}
+                                </h3>
+                                <p class="company-name">${this.getText(exp.company)}</p>
+                                <div class="experience-details">
+                                    <span class="location">${exp.location}</span>
+                                    <span class="dates">${this.formatDate(exp.startDate)} - ${exp.current ? (this.currentLang === 'en' ? 'Present' : 'Présent') : this.formatDate(exp.endDate)}</span>
+                                </div>
+                            </div>
                         </div>
-                    ` : `
-                        <div class="company-logo">
-                            <span>${exp.type === 'work' ? '💼' : '🎓'}</span>
-                        </div>
-                    `}
-                    <div class="experience-meta">
-                        <h3 data-en="${this.escapeHtml(exp.title.en)}" 
-                            data-fr="${this.escapeHtml(exp.title.fr)}">
-                            ${this.getText(exp.title)}
-                        </h3>
-                        <p class="company-name">${this.getText(exp.company)}</p>
-                        <div class="experience-details">
-                            <span class="location">${exp.location}</span>
-                            <span class="dates">${this.formatDate(exp.startDate)} - ${exp.current ? (this.currentLang === 'en' ? 'Present' : 'Présent') : this.formatDate(exp.endDate)}</span>
+                        <div class="experience-body">
+                            <ul data-en="${this.getText(exp.description.en).map(item => `<li>${item}</li>`).join('')}" data-fr="${this.getText(exp.description.fr).map(item => `<li>${item}</li>`).join('')}">
+                                ${this.getText(exp.description[this.currentLang]).map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                            ${(() => {
+                                const tags = this.normalizeTags(exp.tags);
+                                return tags.length > 0 ? `
+                                <div class="keywords">
+                                    ${tags.map(t => this.getTagHtml(t, 'keyword', '#')).join(' ')}
+                                </div>` : '';
+                            })()}
                         </div>
                     </div>
-                </div>
-                <div class="experience-body">
-                    <ul>
-                        ${this.getText(exp.description).map(item => `<li>${item}</li>`).join('')}
-                    </ul>
-                    ${(() => {
-                        const tags = this.normalizeTags(exp.tags);
-                        return tags.length > 0 ? `
-                        <div class="keywords">
-                            ${tags.map(t => this.getTagHtml(t, 'keyword', '#')).join(' ')}
-                        </div>` : '';
-                    })()}
-                </div>
-            </div>
-        `).join('');
-    }
+                `).join('');   }
 
     // ========================================
     // Helper Functions
