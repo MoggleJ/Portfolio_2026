@@ -254,8 +254,9 @@ normalizeTags(tags) {
                             </div>
                         </div>
                         <div class="experience-body">
-                            <ul data-en="${this.getText(exp.description.en).map(item => `<li>${item}</li>`).join('')}" data-fr="${this.getText(exp.description.fr).map(item => `<li>${item}</li>`).join('')}">
-                                ${this.getText(exp.description[this.currentLang]).map(item => `<li>${item}</li>`).join('')}
+                            <ul data-en="${exp.description.en.map(item => `<li>${this.escapeHtml(item)}</li>`).join('')}" 
+                                data-fr="${exp.description.fr.map(item => `<li>${this.escapeHtml(item)}</li>`).join('')}">
+                                ${exp.description[this.currentLang].map(item => `<li>${this.escapeHtml(item)}</li>`).join('')}
                             </ul>
                             ${(() => {
                                 const tags = this.normalizeTags(exp.tags);
