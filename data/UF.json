@@ -1,0 +1,190 @@
+{
+  "trainingUnits": [
+    {
+      "id": "uf-7-1",
+      "code": "UF 7.1",
+      "title": {
+        "en": "Professional Life: Project Management",
+        "fr": "Vie Professionnelle : Maîtrise de Projet"
+      },
+      "objectives": {
+        "en": [
+          "Organization and management of work on one or more projects",
+          "Implementation of a structured analysis approach",
+          "Mobilization of human, technical, and documentary resources necessary for project completion",
+          "Application of the apprentice's knowledge, technical or scientific expertise"
+        ],
+        "fr": [
+          "Organisation, gestion du travail sur un ou plusieurs projets",
+          "Mise en œuvre d'une démarche structurée d'analyse",
+          "Mobilisation des ressources humaines, techniques, documentaires nécessaires à la réalisation du projet",
+          "Mise en application des connaissances de l'apprenti, de son expertise technique ou scientifique"
+        ]
+      },
+      "achievements": [
+        {
+          "title": {
+            "en": "Organization and management of work on one or more projects",
+            "fr": "Organisation, gestion du travail sur un ou plusieurs projets"
+          },
+          "description": {
+            "en": "I work on multiple projects simultaneously: validating equipments compliance to the ITxPT association specifications and developing embedded clients managing TLS certificates. As tests on equipments and meetings may require booking specific time slots, i plan my work ahead setting events in my Outlook calendar with to-do lists for the different projects. I report on my successes and difficulties on notebooks.",
+            "fr": "Je travaille sur plusieurs projets simultanément : validation de la conformité des équipements aux spécifications de l'association ITxPT et développement de clients embarqués gérant les certificats TLS. Comme les tests sur les équipements et les réunions peuvent nécessiter de réserver des créneaux horaires spécifiques, je planifie mon travail à l'avance en créant des événements dans mon calendrier Outlook avec des listes de choses à faire pour les différents projets. Je fais le point sur mes réussites et difficultés sur des carnets de notes."
+          }
+        },
+        {
+          "title": {
+            "en": "Implementation of a structured analysis approach",
+            "fr": "Mise en œuvre d'une démarche structurée d'analyse"
+          },
+          "description": {
+            "en": "In my project on securing onboard communication, I first analyzed the need (end-to-end authentication and encryption) by studying the exploitation context (current situation, available hardware), maintenance constraints and technical requirements. This analysis allowed me to build a specifications document, validated by SNCF. From this document, I develop an embedded certificate management client that meets these requirements.",
+            "fr": "Dans mon projet de sécurisation de communication embarquée, j’ai d’abord analysé le besoin (d'authentification bout-en-bout et de chiffrement) en étudiant le contexte d’exploitation (situation actuelle, matériel à disposition) , les contraintes de maintenance et les exigences techniques. Cette analyse m’a permis de construire un cahier des charges, validé par la SNCF. À partir de ce document, je développe un client de gestion de certificats embarqués répondant à ces exigences."
+          }
+        },
+        {
+          "title": {
+            "en": "Mobilization of human, technical, and documentary resources necessary for project completion.",
+            "fr": "Mobilisation des ressources humaines, techniques, documentaires nécessaires à la réalisation du projet."
+          },
+          "description": {
+            "en": "To gather maintenance requirements, I was in contact with the Nevers technical center. This allowed me to develop part of the specifications. I also worked with the IT team responsible for managing onboard/ground communication for the completion of the specifications. Finally, I must develop the embedded client and test it with the server developed by the IT team.",
+            "fr": "Pour recueillir le besoin côté maintenance, j'ai été en contact avec le technicentre de Nevers. Cela m'a permis d'élaborer une partie du cahier des charges. J'ai également travaillé avec l'équipe SI en charge de la gestion de la communication bord/sol pour la complétude du cahier des charges. Enfin, je dois développer le client embarqué et le tester avec le serveur développé par l'équipe SI."
+          }
+        }, 
+        {
+          "title": {
+            "en": "Application of the apprentice's knowledge, technical or scientific expertise",
+            "fr": "Mise en application des connaissances de l'apprenti, de son expertise technique ou scientifique"
+          },
+          "description": {
+            "en": "I apply my knowledge in Python development, cybersecurity, and networking to implement my embedded clients for certificate management. I also use my knowledge of communication protocols and data formats to ensure the compliance of equipments with the ITxPT specifications.",
+            "fr": "J'applique mes connaissances en développement Python, cybersécurité et réseaux pour implémenter mes clients embarqués de gestion de certificats. J'utilise également mes connaissances des protocoles de communication et des formats de données pour assurer la conformité des équipements aux spécifications ITxPT."
+          }
+        }
+      ],
+      "icon": "📋",
+      "gradient": "jade-magenta"
+    },
+    {
+      "id": "uf-7-2",
+      "code": "UF 7.2",
+      "title": {
+        "en": "Technical: Programming & Tooling",
+        "fr": "Technique : Programmation & Outillage"
+      },
+      "objectives": {
+        "en": [
+          "Knowledge of data exchange formats and protocols used in company projects and their manipulation (XML, JSON, blue scan for example)",
+          "Knowledge and handling of tools related to the work environment",
+          "Discover and appropriate new function libraries"
+        ],
+        "fr": [
+          "Connaissances des formats et des protocoles d'échanges de données utilisés dans les projets de l'entreprise et leurs manipulations (XML, JSON, blue scan par exemple)",
+          "Connaissance et prise en main d'outils liés à l'environnement de travail",
+          "Découvrir et s'approprier de nouvelles librairies de fonctions"
+        ]
+      },
+      "achievements": [
+        {
+          "title": {
+            "en": "Knowledge of data exchange formats and protocols used in company projects",
+            "fr": "Connaissance des formats et des protocoles d'échanges de données utilisés dans les projets de l'entreprise"
+          },
+          "description": {
+            "en": "I have been exposed to the XML and JSON formats through the tests I ran to validate ITxPT modules. I also use YAML to configure my client applications. Regarding communication protocols, I have been using the HTTP protocol (through both main projects I'm working on) and will be working with MQTT. I have also developped a server-client pair of applications communicating through RADIUS and EAP protocols.",
+            "fr": "J'ai été confrontée aux formats XML et JSON de par les tests que j'ai joués pour valider les modules ITxPT. J'utilise également YAML pour configurer mes applications clientes. Concernant les protocoles de communication, j'ai utilisé le protocole HTTP (à travers les deux projets sur lesquels je travaille) et je vais travailler avec MQTT. J'ai également développé une paire d'applications serveur-client communiquant via les protocoles RADIUS et EAP."
+          }
+        },
+        {
+          "title": {
+            "en": "Knowledge and handling of tools related to the work environment",
+            "fr": "Connaissance et prise en main d'outils liés à l'environnement de travail"
+          },
+          "description": {
+            "en": "I work with configuration management under Git and have also used Docker as part of my main projects.",
+            "fr": "Je suis amenée à travailler en gestion de configuration sous Git et j'ai également utilisé Docker dans le cadre de mes deux projets principaux."
+          }
+        },
+        {
+          "title": {
+            "en": "Discover and appropriate new function libraries",
+            "fr": "Découvrir et s'approprier de nouvelles librairies de fonctions"
+          },
+          "description": {
+            "en": "I use libraries related to certificate management and HTTP requests.",
+            "fr": "J'utilise des librairies liées à la gestion des certificats et de requêtes HTTP."
+          }
+        }
+      ],
+      "icon": "💻",
+      "gradient": "magenta-jade"
+    },
+    {
+      "id": "uf-7-3",
+      "code": "UF 7.3",
+      "title": {
+        "en": "Technical: Operating System Programming (ASTRE)",
+        "fr": "Technique : Programmation Système d'Exploitation (ASTRE)"
+      },
+      "objectives": {
+        "en": [
+          "Know the functioning of an operating system (OS) used in the company",
+          "Conduct a comparative study compared to what exists in the public domain",
+          "Implement the management of multiple programs execution on the same processor or on an embedded system",
+          "Communicate with one or two peripherals using the interrupt driver concept (Driver)"
+        ],
+        "fr": [
+          "Connaître le fonctionnement d'un système d'exploitation (OS) utilisé dans l'entreprise",
+          "Mener une étude comparative par rapport à l'existant dans le domaine public",
+          "Mettre en œuvre la gestion de l'exécution de plusieurs programmes sur le même processeur ou sur un système embarqué",
+          "Communiquer avec un ou deux périphériques en utilisant la notion de pilote d'interruption (Driver)"
+        ]
+      },
+      "achievements": [
+        {
+          "title": {
+            "en": "Know the functioning of an operating system (OS) used in the company",
+            "fr": "Connaître le fonctionnement d'un système d'exploitation (OS) utilisé dans l'entreprise"
+          },
+          "description": {
+            "en": "I am working with MatOS (Ubuntu-based), the OS developed by the material engineering department to port the embedded client I developed for securing onboard/ground communication.",
+            "fr": "Je travaille avec MatOS (base Ubuntu), l'OS développé par l'ingénierie du matériel pour y porter le client embarqué que j'ai développé dans le cadre de la sécurisation de la communication bord/sol."
+          }
+        },
+        {
+          "title": {
+            "en": "Conduct a comparative study compared to what exists in the public domain",
+            "fr": "Mener une étude comparative par rapport à l'existant dans le domaine public"
+          },
+          "description": {
+            "en": "MatOS is a lighter version of the Ubuntu distribution optimized to run k3s and multiple Docker containers on embedded systems with limited resources.",
+            "fr": "MatOS est une version allégée de la distribution Ubuntu optimisée pour faire tourner k3s et plusieurs conteneurs Docker sur des systèmes embarqués aux ressources limitées."
+          }
+        },
+        {
+          "title": {
+            "en": "Implement the management of multiple programs execution on the same processor or on an embedded system",
+            "fr": "Mettre en œuvre la gestion de l'exécution de plusieurs programmes sur le même processeur ou sur un système embarqué"
+          },
+          "description": {
+            "en": "I verify the compatibility of using my client concurrently with the onboard/ground communication platform that specifically manages exchanges with the ground.",
+            "fr": "Je vérifie la compatibilité de l'utilisation de mon client de manière concurrente à la plateforme de communication bord/sol qui gère spécifiquement les échanges avec le sol."
+          }
+        }, 
+        {
+          "title": {
+            "en": "Communicate with one or two peripherals using the interrupt driver concept (Driver)",
+            "fr": "Communiquer avec un ou deux périphériques en utilisant la notion de pilote d'interruption (Driver)"
+          },
+          "description": {
+            "en": "I made a piano driver transforming the letters w x c v b n into numbers 1 to 6 to play notes.",
+            "fr": "J'ai réalisé un driver de piano transformant les lettres w x c v b n m en chiffres 1 à 7 pour jouer des notes."
+          }
+        }
+      ],
+      "icon": "⚙️",
+      "gradient": "cyan-jade"
+    }
+  ]
+}

@@ -15,13 +15,15 @@ class PortfolioDataLoader {
             await Promise.all([
                 this.loadProjects(),
                 this.loadSkills(),
-                this.loadExperience()
+                this.loadExperience(),
+                this.loadUF()
             ]);
             
             // Render all sections
             this.renderProjects();
             this.renderSkills();
             this.renderExperience();
+            this.renderUF();
             
             console.log('✅ Portfolio data loaded successfully');
         } catch (error) {
@@ -47,123 +49,126 @@ class PortfolioDataLoader {
         this.data.experience = data.experiences;
     }
 
-    getText(textObj) {
-        if (typeof textObj === 'string') return textObj;
-        return textObj[this.currentLang] || textObj.en;
+    async loadUF() {
+        const response = await fetch('./data/UF.json');
+        const data = await response.json();
+        this.data.uf = data.trainingUnits;
     }
 
-    // ========================================
-    // Render Projects
-    // ========================================
-    renderProjects() {
-    const container = document.getElementById('projects-container');
-    if (!container || !this.data.projects) return;
 
-    container.innerHTML = this.data.projects.map((project, index) => `
-        <article class="project-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
-            <div class="project-image">
-                ${project.img ? 
-                    `<img src="https://mogglej.github.io/Portfolio_2026${project.img}" alt="${this.escapeHtml(project.title.en)}" class="project-img-src">` : 
-                    `<div class="placeholder-project gradient-${project.gradient}">
-                        <span>${project.icon}</span>
-                    </div>`
-                }
-                <div class="project-overlay">
-                    <a href="${project.link}" class="project-link-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                            <polyline points="15 3 21 3 21 9"></polyline>
-                            <line x1="10" y1="14" x2="21" y2="3"></line>
+    getText(textObj) {
+        if (typeof textObj === 'string') return textObj;
+        return textObj[this.currentLang] || textObj.en || textObj;
+    }
+
+    // Render Projects
+    renderProjects() {
+        const container = document.getElementById('projects-container');
+        if (!container || !this.data.projects) return;
+
+        container.innerHTML = this.data.projects.map((project, index) => `
+            <article class="project-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
+                <div class="project-image">
+                    ${project.img ? 
+                        `<img src="https://mogglej.github.io/Portfolio_2026${project.img}" alt="${this.escapeHtml(project.title.en)}" class="project-img-src">` : 
+                        `<div class="placeholder-project gradient-${project.gradient}">
+                            <span>${project.icon}</span>
+                        </div>`
+                    }
+                    <div class="project-overlay">
+                        <a href="${project.link}" class="project-link-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    ${(() => {
+                        const tags = this.normalizeTags(project.tags);
+                        const tagsHtml = tags.map(t => this.getTagHtml(t, 'tag', '#')).join(' ');
+                        return `<div class="project-tags">${tagsHtml}</div>`;
+                    })()}
+                    <h3 data-en="${this.escapeHtml(project.title.en)}" data-fr="${this.escapeHtml(project.title.fr)}">
+                        ${this.getText(project.title)}
+                    </h3>
+                    <p data-en="${this.escapeHtml(project.description.en)}" data-fr="${this.escapeHtml(project.description.fr)}">
+                        ${this.getText(project.description)}
+                    </p>
+                    <a href="${project.link}" class="project-link">
+                        <span data-en="Learn more" data-fr="En savoir plus">Learn more</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </a>
                 </div>
-            </div>
-            <div class="project-info">
-                ${(() => {
-                    const tags = this.normalizeTags(project.tags);
-                    const tagsHtml = tags.map(t => this.getTagHtml(t, 'tag', '#')).join(' ');
-                    return `<div class="project-tags">${tagsHtml}</div>`;
-                })()}
-                <h3 data-en="${this.escapeHtml(project.title.en)}" data-fr="${this.escapeHtml(project.title.fr)}">
-                    ${this.getText(project.title)}
-                </h3>
-                <p data-en="${this.escapeHtml(project.description.en)}" data-fr="${this.escapeHtml(project.description.fr)}">
-                    ${this.getText(project.description)}
-                </p>
-                <a href="${project.link}" class="project-link">
-                    <span data-en="Learn more" data-fr="En savoir plus">Learn more</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
-            </div>
-        </article>
-    `).join('');
-}
+            </article>
+        `).join('');
+    }
 
-    // ========================================
-    // Render Skills
-    // ========================================
+        // Render Skills
     renderSkills() {
-    const container = document.getElementById('skills-container');
-    if (!container || !this.data.skills) return;
+        const container = document.getElementById('skills-container');
+        if (!container || !this.data.skills) return;
 
-    // On utilise la classe skills-grid-main pour aligner les catégories côte à côte
-    container.innerHTML = `
-        <div class="skills-grid-main">
-            ${this.data.skills.map((category, index) => {
-                const categoryTitle = this.getText(category.title);
-                
-                return `
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="${index * 50}">
-                    <div class="category-header">
-                        <span class="category-icon">${category.icon}</span>
-                        <h3 data-en="${category.title.en}" data-fr="${category.title.fr}">
-                            ${categoryTitle}
-                        </h3>
-                    </div>
-                    <div class="skill-list-full">
-                        ${category.skills.map(skill => {
-                            const skillName = this.getText(skill.name);
-                            const autonomy = skill.autonomy_level || 0;
-                            const mastery = skill.mastery_level || 0;
-                            const autonomy_label = this.getAutonomyLabel(autonomy);
+        // On utilise la classe skills-grid-main pour aligner les catégories côte à côte
+        container.innerHTML = `
+            <div class="skills-grid-main">
+                ${this.data.skills.map((category, index) => {
+                    const categoryTitle = this.getText(category.title);
+                    
+                    return `
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="${index * 50}">
+                        <div class="category-header">
+                            <span class="category-icon">${category.icon}</span>
+                            <h3 data-en="${category.title.en}" data-fr="${category.title.fr}">
+                                ${categoryTitle}
+                            </h3>
+                        </div>
+                        <div class="skill-list-full">
+                            ${category.skills.map(skill => {
+                                const skillName = this.getText(skill.name);
+                                const autonomy = skill.autonomy_level || 0;
+                                const mastery = skill.mastery_level || 0;
+                                const autonomy_label = this.getAutonomyLabel(autonomy);
 
-                            // Génération des 5 points LED pour l'autonomie (data-active pour animation)
-                            let dotsHTML = '';
-                            for (let i = 1; i <= 5; i++) {
-                                dotsHTML += `<span class="dot" data-active="${i <= autonomy ? 1 : 0}"></span>`;
-                            }
+                                // Génération des 5 points LED pour l'autonomie (data-active pour animation)
+                                let dotsHTML = '';
+                                for (let i = 1; i <= 5; i++) {
+                                    dotsHTML += `<span class="dot" data-active="${i <= autonomy ? 1 : 0}"></span>`;
+                                }
 
-                            // Préparation des attributs de langue pour le nom du skill (si c'est un objet)
-                            const langAttrs = typeof skill.name === 'object' 
-                                ? `data-en="${this.escapeHtml(skill.name.en)}" data-fr="${this.escapeHtml(skill.name.fr)}"` 
-                                : '';
+                                // Préparation des attributs de langue pour le nom du skill (si c'est un objet)
+                                const langAttrs = typeof skill.name === 'object' 
+                                    ? `data-en="${this.escapeHtml(skill.name.en)}" data-fr="${this.escapeHtml(skill.name.fr)}"` 
+                                    : '';
 
-                            return `
-                                                        <div class="skill-item-box">
-                                                            <div class="skill-info-top">
-                                                                <span class="skill-name" ${langAttrs}>${skillName}</span>
-                                                                <div class="skill-autonomy">
-                                                                    <div class="autonomy-dots" title="Autonomy: ${autonomy}/5">
-                                                                        ${dotsHTML}
-                                                                    </div>
-                                                                    <div class="autonomy-meta">
-                                                                        <span class="autonomy-text" data-en="${this.escapeHtml(autonomy_label.en)}" data-fr="${this.escapeHtml(autonomy_label.fr)}">${autonomy_label[this.currentLang]}</span>
+                                return `
+                                                            <div class="skill-item-box">
+                                                                <div class="skill-info-top">
+                                                                    <span class="skill-name" ${langAttrs}>${skillName}</span>
+                                                                    <div class="skill-autonomy">
+                                                                        <div class="autonomy-dots" title="Autonomy: ${autonomy}/5">
+                                                                            ${dotsHTML}
+                                                                        </div>
+                                                                        <div class="autonomy-meta">
+                                                                            <span class="autonomy-text" data-en="${this.escapeHtml(autonomy_label.en)}" data-fr="${this.escapeHtml(autonomy_label.fr)}">${autonomy_label[this.currentLang]}</span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        </div>`;   }).join('')}
-                    </div>
-                </div>`;
-            }).join('')}
-        </div>
-    `;
-    // Animate skill fills and autonomy dots
-    this.animateSkillFills(container);
-}
+                                                            </div>`;   }).join('')}
+                        </div>
+                    </div>`;
+                }).join('')}
+            </div>
+        `;
+        // Animate skill fills and autonomy dots
+        this.animateSkillFills(container);
+    }
 
-normalizeTags(tags) {
+    normalizeTags(tags) {
         if (!tags) return [];
         if (typeof tags === 'object' && !Array.isArray(tags) && (Array.isArray(tags.en) || Array.isArray(tags.fr))) {
             const en = Array.isArray(tags.en) ? tags.en : [];
@@ -222,56 +227,100 @@ normalizeTags(tags) {
             });
         });
     }
-    // ========================================
     // Render Experience
-    // ========================================
     renderExperience() {
         const container = document.getElementById('experience-container');
         if (!container || !this.data.experience) return;
 
         container.innerHTML = this.data.experience.map((exp, index) => `
-                    <div class="experience-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
-                        <div class="experience-header">
-                            ${exp.logo ? `
-                                <div class="company-logo">
-                                    <img src="https://mogglej.github.io/Portfolio_2026/images/${exp.logo}" alt="${exp.company}">
-                                </div>
-                            ` : `
-                                <div class="company-logo">
-                                    <span>${exp.type === 'work' ? '💼' : '🎓'}</span>
-                                </div>
-                            `}
-                            <div class="experience-meta">
-                                <h3 data-en="${this.escapeHtml(exp.title.en)}" 
-                                    data-fr="${this.escapeHtml(exp.title.fr)}">
-                                    ${this.getText(exp.title)}
-                                </h3>
-                                <p class="company-name">${this.getText(exp.company)}</p>
-                                <div class="experience-details">
-                                    <span class="location">${exp.location}</span>
-                                    <span class="dates">${this.formatDate(exp.startDate)} - ${exp.current ? (this.currentLang === 'en' ? 'Present' : 'Présent') : this.formatDate(exp.endDate)}</span>
-                                </div>
-                            </div>
+            <div class="experience-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
+                <div class="experience-header">
+                    ${exp.logo ? `
+                        <div class="company-logo">
+                            <img src="https://mogglej.github.io/Portfolio_2026/images/${exp.logo}" alt="${exp.company}">
                         </div>
-                        <div class="experience-body">
-                            <ul data-en="${exp.description.en.map(item => `<li>${this.escapeHtml(item)}</li>`).join('')}" 
-                                data-fr="${exp.description.fr.map(item => `<li>${this.escapeHtml(item)}</li>`).join('')}">
-                                ${exp.description[this.currentLang].map(item => `<li>${this.escapeHtml(item)}</li>`).join('')}
-                            </ul>
-                            ${(() => {
-                                const tags = this.normalizeTags(exp.tags);
-                                return tags.length > 0 ? `
-                                <div class="keywords">
-                                    ${tags.map(t => this.getTagHtml(t, 'keyword', '#')).join(' ')}
-                                </div>` : '';
-                            })()}
+                    ` : `
+                        <div class="company-logo">
+                            <span>${exp.type === 'work' ? '💼' : '🎓'}</span>
+                        </div>
+                    `}
+                    <div class="experience-meta">
+                        <h3 data-en="${this.escapeHtml(exp.title.en)}" 
+                            data-fr="${this.escapeHtml(exp.title.fr)}">
+                            ${this.getText(exp.title)}
+                        </h3>
+                        <p class="company-name">${this.getText(exp.company)}</p>
+                        <div class="experience-details">
+                            <span class="location">${exp.location}</span>
+                            <span class="dates">${this.formatDate(exp.startDate)} - ${exp.current ? (this.currentLang === 'en' ? 'Present' : 'Présent') : this.formatDate(exp.endDate)}</span>
                         </div>
                     </div>
-                `).join('');   }
+                </div>
+                <div class="experience-body">
+                    <ul data-en="${this.escapeHtml(JSON.stringify(exp.description.en))}" 
+                        data-fr="${this.escapeHtml(JSON.stringify(exp.description.fr))}">
+                        ${this.getText(exp.description).map(point => `<li>${this.escapeHtml(point)}</li>`).join('')}
+                    </ul>
+                    ${(() => {
+                        const tags = this.normalizeTags(exp.tags);
+                        return tags.length > 0 ? `
+                        <div class="keywords">
+                            ${tags.map(t => this.getTagHtml(t, 'keyword', '#')).join(' ')}
+                        </div>` : '';
+                    })()}
+                </div>
+            </div>
+        `).join('');   }
 
-    // ========================================
+    // Render Training Units (UF)
+    renderUF() {
+        const container = document.getElementById('uf-container');
+        if (!container || !this.data.uf) return;
+
+        const isMobile = window.innerWidth < 900;
+
+        container.innerHTML = `
+            <div class="uf-section">
+                ${this.data.uf.map((uf, index) => {
+                    const animation = isMobile ? 'fade-up' : (index % 2 === 0 ? 'fade-right' : 'fade-left');
+                    
+                    return `
+                    <div class="uf-row" data-aos="${animation}">
+                        <div class="uf-planet">
+                            <span class="uf-code">${uf.code}</span>
+                            <div class="uf-icon" >${uf.icon}</div>
+                            <h3 data-en="${this.escapeHtml(uf.title.en)}" 
+                                data-fr="${this.escapeHtml(uf.title.fr)}">
+                                ${this.getText(uf.title)}
+                            </h3>
+                        </div>
+
+                        <div class="uf-data-panel">
+                            <div class="uf-content-list">
+                                ${uf.achievements.map(ach => `
+                                    <div class="uf-content-item">
+                                        <span class="uf-consigne" 
+                                            data-en="${this.escapeHtml(ach.title.en)}" 
+                                            data-fr="${this.escapeHtml(ach.title.fr)}">
+                                            ${this.getText(ach.title)}
+                                        </span>
+                                        <p class="uf-desc" 
+                                        data-en="${this.escapeHtml(ach.description.en)}" 
+                                        data-fr="${this.escapeHtml(ach.description.fr)}">
+                                            ${this.getText(ach.description)}
+                                        </p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                }).join('')}
+            </div>
+        `;
+    }
+
     // Helper Functions
-    // ========================================
     escapeHtml(text) {
         const div = document.createElement('div');
         div.textContent = text;
@@ -295,9 +344,7 @@ normalizeTags(tags) {
 }
 
 
-// ========================================
 // Initialize AOS (Animate On Scroll)
-// ========================================
 document.addEventListener('DOMContentLoaded', function() {
     if (typeof AOS !== 'undefined') {
         AOS.init({
@@ -309,9 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// ========================================
 // Navbar Scroll Effect
-// ========================================
 const navbar = document.querySelector('.navbar');
 let lastScroll = 0;
 
@@ -328,9 +373,7 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// ========================================
 // Mobile Menu Toggle
-// ========================================
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
@@ -350,8 +393,8 @@ if (menuToggle) {
             spans[1].style.opacity = '1';
             spans[2].style.transform = 'none';
         }
-    });
-    
+            });
+
     // Close menu when clicking on a link
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -362,7 +405,7 @@ if (menuToggle) {
             spans[2].style.transform = 'none';
         });
     });
-    
+
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
@@ -375,9 +418,7 @@ if (menuToggle) {
     });
 }
 
-// ========================================
 // Smooth Scroll for Anchor Links
-// ========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -397,9 +438,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ========================================
 // Active Navigation Link on Scroll
-// ========================================
 const sections = document.querySelectorAll('section[id]');
 
 function updateActiveLink() {
@@ -423,9 +462,7 @@ function updateActiveLink() {
 
 window.addEventListener('scroll', updateActiveLink);
 
-// ========================================
 // Parallax Effect for Hero Background
-// ========================================
 const heroBackground = document.querySelector('.hero-background');
 
 if (heroBackground) {
@@ -436,9 +473,7 @@ if (heroBackground) {
     });
 }
 
-// ========================================
 // Typing Effect for Hero Subtitle (Optional)
-// ========================================
 function typeWriter(element, text, speed = 50) {
     let i = 0;
     element.textContent = '';
@@ -454,18 +489,8 @@ function typeWriter(element, text, speed = 50) {
     type();
 }
 
-// Uncomment to enable typing effect
-// const heroSubtitle = document.querySelector('.hero-subtitle');
-// if (heroSubtitle) {
-//     const originalText = heroSubtitle.textContent;
-//     setTimeout(() => {
-//         typeWriter(heroSubtitle, originalText, 30);
-//     }, 1000);
-// }
 
-// ========================================
 // Intersection Observer for Fade-In Animations
-// ========================================
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -489,9 +514,8 @@ fadeElements.forEach(el => {
     fadeInObserver.observe(el);
 });
 
-// ========================================
+
 // Form Submission Handler
-// ========================================
 const contactForm = document.querySelector('.contact-form');
 
 if (contactForm) {
@@ -536,9 +560,7 @@ if (contactForm) {
 
 }
 
-// ========================================
-// Cursor Trail Effect (Optional - Advanced)
-// ========================================
+// Cursor Trail Effect (Comming soon)
 class CursorTrail {
     constructor() {
         this.particles = [];
@@ -602,14 +624,7 @@ class CursorTrail {
     }
 }
 
-// Uncomment to enable cursor trail (only on desktop)
-// if (window.innerWidth > 768) {
-//     new CursorTrail();
-// }
-
-// ========================================
 // Scroll Progress Indicator
-// ========================================
 function createScrollProgress() {
     const progressBar = document.createElement('div');
     progressBar.style.position = 'fixed';
@@ -630,21 +645,15 @@ function createScrollProgress() {
     });
 }
 
-// Uncomment to enable scroll progress bar
-// createScrollProgress();
 
-// ========================================
 // Dynamic Year in Footer
-// ========================================
 const footerYear = document.querySelector('.footer-center p');
 if (footerYear && footerYear.textContent.includes('2025')) {
     const currentYear = new Date().getFullYear();
     footerYear.textContent = footerYear.textContent.replace('2025', currentYear);
 }
 
-// ========================================
 // Lazy Loading Images
-// ========================================
 if ('loading' in HTMLImageElement.prototype) {
     // Native lazy loading supported
     const images = document.querySelectorAll('img[loading="lazy"]');
@@ -668,9 +677,7 @@ if ('loading' in HTMLImageElement.prototype) {
     });
 }
 
-// ========================================
 // Detect if user prefers reduced motion
-// ========================================
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (prefersReducedMotion) {
@@ -687,15 +694,11 @@ if (prefersReducedMotion) {
     }
 }
 
-// ========================================
-// Console Easter Egg
-// ========================================
+// Console Welocome Message
 console.log('%c Welcome to my portfolio!', 'font-size: 24px; font-weight: bold; color: #4DBAA6;');
 console.log('%c Finding anything interesting? Don\'t hesitate to reach out!', 'font-size: 14px; color: #B8336A;');
 
-// ========================================
 // Performance Optimization
-// ========================================
 // Debounce function for scroll events
 function debounce(func, wait = 10) {
     let timeout;
@@ -713,9 +716,7 @@ function debounce(func, wait = 10) {
 const debouncedUpdateActiveLink = debounce(updateActiveLink, 50);
 window.addEventListener('scroll', debouncedUpdateActiveLink);
 
-// ========================================
 // Keyboard Navigation Enhancement
-// ========================================
 document.addEventListener('keydown', (e) => {
     // Escape key closes mobile menu
     if (e.key === 'Escape' && navMenu.classList.contains('active')) {
@@ -728,9 +729,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-// ========================================
 // Initialize everything when DOM is ready
-// ========================================
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('Portfolio loaded successfully!');
     
@@ -739,14 +738,3 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Add any additional initialization here
     updateActiveLink();
 });
-
-// ========================================
-// Service Worker Registration (Optional - for PWA)
-// ========================================
-// if ('serviceWorker' in navigator) {
-//     window.addEventListener('load', () => {
-//         navigator.serviceWorker.register('/sw.js')
-//             .then(registration => console.log('SW registered:', registration))
-//             .catch(error => console.log('SW registration failed:', error));
-//     });
-// }
