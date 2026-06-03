@@ -48,10 +48,21 @@
         { "name": "STM32CubeIDE", "autonomy_level": 2 },
         { "name": "IntelliJ IDEA", "autonomy_level": 4 },
         { "name": "Arduino IDE", "autonomy_level": 4 },
-        { "name": "Scanner 3D", "autonomy_level": 2 },
-        { "name": "Logiciels de CAO (Fusion 360, SolidWorks)", "autonomy_level": 3 },
-        { "name": "Android Studio", "autonomy_level": 3 },
-        { "name": "SolidWorks Composer", "autonomy_level": 3 }
+        { "name": "Android Studio", "autonomy_level": 3 }
+      ]
+    },
+    {
+      "id": "cad",
+      "icon": "🎨",
+      "title": {
+        "en": "CAD & 3D Design",
+        "fr": "CAO & Conception 3D"
+      },
+      "skills": [
+        { "name": "Fusion 360", "autonomy_level": 3 },
+        { "name": "SolidWorks", "autonomy_level": 4 },
+        { "name": "SolidWorks Composer", "autonomy_level": 3 },
+        { "name": "Scanner 3D", "autonomy_level": 2 }
       ]
     },
      {

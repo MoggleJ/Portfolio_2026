@@ -27,6 +27,7 @@
                 <li><a href="#home" class="nav-link active" data-en="Home" data-fr="Accueil">Accueil</a></li>
                 <li><a href="#projects" class="nav-link" data-en="Projects" data-fr="Projets">Projets</a></li>
                 <li><a href="#skills" class="nav-link" data-en="Skills" data-fr="Compétences">Compétences</a></li>
+                <li><a href="#uf" class="nav-link" data-en="Training Units" data-fr="Unités de Formation">Unités de Formation</a></li>
                 <li><a href="#about" class="nav-link" data-en="About" data-fr="À propos">A propos</a></li>
                 <li><a href="#experience" class="nav-link" data-en="Experience" data-fr="Expérience">Expérience</a></li>
                 <li><a href="#contact" class="nav-link" data-en="Contact" data-fr="Contact">Contact</a></li>
@@ -88,6 +89,13 @@
                data-fr="Une sélection de mes travaux récents en systèmes embarqués et développement logiciel">
                 A selection of my recent work in embedded systems and software development
             </p>
+            
+            <!-- Projects Filter -->
+            <div class="projects-filter" id="projects-filter-container">
+                <button class="filter-btn active" data-filter="all" data-en="All" data-fr="Tous">All</button>
+                <!-- Additional filter buttons will be generated dynamically -->
+            </div>
+            
             <div class="projects-grid" id="projects-container">
                 <!-- Loaded dynamically from projects.json -->
             </div>
@@ -122,6 +130,14 @@
             data-fr="Compétences et réalisations acquises durant mon apprentissage">
                 Compétences et réalisations acquises durant mon apprentissage
             </p>
+            
+            <!-- UF Filter -->
+            <div class="uf-filter" id="uf-filter-container">
+                <button class="uf-filter-btn active" data-uf-filter="all" data-en="All UF" data-fr="Tous les UF">All UF</button>
+                <button class="uf-filter-btn" data-uf-filter="7" data-en="UF 7" data-fr="UF 7">UF 7</button>
+                <button class="uf-filter-btn" data-uf-filter="8" data-en="UF 8" data-fr="UF 8">UF 8</button>
+            </div>
+            
             <div class="uf-container" id="uf-container">
             </div>
         </div>

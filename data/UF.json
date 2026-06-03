@@ -28,7 +28,7 @@
             "fr": "Organisation, gestion du travail sur un ou plusieurs projets"
           },
           "description": {
-            "en": "I work on multiple projects simultaneously: validating equipments compliance to the ITxPT association specifications and developing embedded clients managing TLS certificates. As tests on equipments and meetings may require booking specific time slots, i plan my work ahead setting events in my Outlook calendar with to-do lists for the different projects. I report on my successes and difficulties on notebooks.",
+            "en": "I work on multiple projects simultaneously: validating equipments compliance to the ITxPT association specifications and developing embedded clients managing TLS certificates. As tests on equipments and meetings may require booking specific time slots, I plan my work ahead setting events in my Outlook calendar with to-do lists for the different projects. I report on my successes and difficulties on notebooks.",
             "fr": "Je travaille sur plusieurs projets simultanément : validation de la conformité des équipements aux spécifications de l'association ITxPT et développement de clients embarqués gérant les certificats TLS. Comme les tests sur les équipements et les réunions peuvent nécessiter de réserver des créneaux horaires spécifiques, je planifie mon travail à l'avance en créant des événements dans mon calendrier Outlook avec des listes de choses à faire pour les différents projets. Je fais le point sur mes réussites et difficultés sur des carnets de notes."
           }
         },
@@ -39,19 +39,19 @@
           },
           "description": {
             "en": "In my project on securing onboard communication, I first analyzed the need (end-to-end authentication and encryption) by studying the exploitation context (current situation, available hardware), maintenance constraints and technical requirements. This analysis allowed me to build a specifications document, validated by SNCF. From this document, I develop an embedded certificate management client that meets these requirements.",
-            "fr": "Dans mon projet de sécurisation de communication embarquée, j’ai d’abord analysé le besoin (d'authentification bout-en-bout et de chiffrement) en étudiant le contexte d’exploitation (situation actuelle, matériel à disposition) , les contraintes de maintenance et les exigences techniques. Cette analyse m’a permis de construire un cahier des charges, validé par la SNCF. À partir de ce document, je développe un client de gestion de certificats embarqués répondant à ces exigences."
+            "fr": "Dans mon projet de sécurisation de communication embarquée, j'ai d'abord analysé le besoin (d'authentification bout-en-bout et de chiffrement) en étudiant le contexte d'exploitation (situation actuelle, matériel à disposition), les contraintes de maintenance et les exigences techniques. Cette analyse m'a permis de construire un cahier des charges, validé par la SNCF. À partir de ce document, je développe un client de gestion de certificats embarqués répondant à ces exigences."
           }
         },
         {
           "title": {
-            "en": "Mobilization of human, technical, and documentary resources necessary for project completion.",
-            "fr": "Mobilisation des ressources humaines, techniques, documentaires nécessaires à la réalisation du projet."
+            "en": "Mobilization of human, technical, and documentary resources necessary for project completion",
+            "fr": "Mobilisation des ressources humaines, techniques, documentaires nécessaires à la réalisation du projet"
           },
           "description": {
-            "en": "To gather maintenance requirements, I was in contact with the Nevers technical center. This allowed me to develop part of the specifications. I also worked with the IT team responsible for managing onboard/ground communication for the completion of the specifications. Finally, I must develop the embedded client and test it with the server developed by the IT team.",
-            "fr": "Pour recueillir le besoin côté maintenance, j'ai été en contact avec le technicentre de Nevers. Cela m'a permis d'élaborer une partie du cahier des charges. J'ai également travaillé avec l'équipe SI en charge de la gestion de la communication bord/sol pour la complétude du cahier des charges. Enfin, je dois développer le client embarqué et le tester avec le serveur développé par l'équipe SI."
+            "en": "To gather maintenance requirements, I was in contact with the Nevers technical center. This allowed me to develop part of the specifications. I also worked with the IT team responsible for managing onboard/ground communication for the completion of the specifications. Finally, I develop the embedded client and test it with the server developed by the IT team.",
+            "fr": "Pour recueillir le besoin côté maintenance, j'ai été en contact avec le technicentre de Nevers. Cela m'a permis d'élaborer une partie du cahier des charges. J'ai également travaillé avec l'équipe SI en charge de la gestion de la communication bord/sol pour la complétude du cahier des charges. Enfin, je développe le client embarqué et le teste avec le serveur développé par l'équipe SI."
           }
-        }, 
+        },
         {
           "title": {
             "en": "Application of the apprentice's knowledge, technical or scientific expertise",
@@ -92,8 +92,8 @@
             "fr": "Connaissance des formats et des protocoles d'échanges de données utilisés dans les projets de l'entreprise"
           },
           "description": {
-            "en": "I have been exposed to the XML and JSON formats through the tests I ran to validate ITxPT modules. I also use YAML to configure my client applications. Regarding communication protocols, I have been using the HTTP protocol (through both main projects I'm working on) and will be working with MQTT. I have also developped a server-client pair of applications communicating through RADIUS and EAP protocols.",
-            "fr": "J'ai été confrontée aux formats XML et JSON de par les tests que j'ai joués pour valider les modules ITxPT. J'utilise également YAML pour configurer mes applications clientes. Concernant les protocoles de communication, j'ai utilisé le protocole HTTP (à travers les deux projets sur lesquels je travaille) et je vais travailler avec MQTT. J'ai également développé une paire d'applications serveur-client communiquant via les protocoles RADIUS et EAP."
+            "en": "I have been exposed to the XML and JSON formats through the tests I ran to validate ITxPT modules. I also use YAML to configure my client applications. Regarding communication protocols, I have been using the HTTP protocol (through both main projects I'm working on), SSH and SFTP for secure file transfer testing, and will be working with MQTT. I have also developed a server-client pair of applications communicating through RADIUS and EAP protocols.",
+            "fr": "J'ai été confrontée aux formats XML et JSON de par les tests que j'ai joués pour valider les modules ITxPT. J'utilise également YAML pour configurer mes applications clientes. Concernant les protocoles de communication, j'ai utilisé le protocole HTTP (à travers les deux projets sur lesquels je travaille), SSH et SFTP pour les tests de transfert de fichiers sécurisés, et je vais travailler avec MQTT. J'ai également développé une paire d'applications serveur-client communiquant via les protocoles RADIUS et EAP."
           }
         },
         {
@@ -102,8 +102,8 @@
             "fr": "Connaissance et prise en main d'outils liés à l'environnement de travail"
           },
           "description": {
-            "en": "I work with configuration management under Git and have also used Docker as part of my main projects.",
-            "fr": "Je suis amenée à travailler en gestion de configuration sous Git et j'ai également utilisé Docker dans le cadre de mes deux projets principaux."
+            "en": "I work with configuration management under Git and have also used Docker as part of my main projects. I am also proficient with development tools such as Visual Studio Code, STM32CubeIDE, and other IDE platforms used for embedded development.",
+            "fr": "Je suis amenée à travailler en gestion de configuration sous Git et j'ai également utilisé Docker dans le cadre de mes deux projets principaux. Je maîtrise également les outils de développement tels que Visual Studio Code, STM32CubeIDE et d'autres plateformes IDE utilisées pour le développement embarqué."
           }
         },
         {
@@ -112,8 +112,8 @@
             "fr": "Découvrir et s'approprier de nouvelles librairies de fonctions"
           },
           "description": {
-            "en": "I use libraries related to certificate management and HTTP requests.",
-            "fr": "J'utilise des librairies liées à la gestion des certificats et de requêtes HTTP."
+            "en": "I use libraries related to certificate management (pyOpenSSL, cryptography), HTTP requests (requests, httpx), and SSH/SFTP operations (paramiko). Through my projects, I have learned to research, evaluate, and integrate third-party libraries to solve specific technical challenges.",
+            "fr": "J'utilise des librairies liées à la gestion des certificats (pyOpenSSL, cryptography), aux requêtes HTTP (requests, httpx) et aux opérations SSH/SFTP (paramiko). À travers mes projets, j'ai appris à rechercher, évaluer et intégrer des librairies tierces pour résoudre des défis techniques spécifiques."
           }
         }
       ],
@@ -148,8 +148,8 @@
             "fr": "Connaître le fonctionnement d'un système d'exploitation (OS) utilisé dans l'entreprise"
           },
           "description": {
-            "en": "I am working with MatOS (Ubuntu-based), the OS developed by the material engineering department to port the embedded client I developed for securing onboard/ground communication.",
-            "fr": "Je travaille avec MatOS (base Ubuntu), l'OS développé par l'ingénierie du matériel pour y porter le client embarqué que j'ai développé dans le cadre de la sécurisation de la communication bord/sol."
+            "en": "I am working with MatOS (Ubuntu-based), the OS developed by the material engineering department to port the embedded client I developed for securing onboard/ground communication. I have learned how this custom OS manages hardware resources, system services, and application deployment on railway equipment.",
+            "fr": "Je travaille avec MatOS (base Ubuntu), l'OS développé par l'ingénierie du matériel pour y porter le client embarqué que j'ai développé dans le cadre de la sécurisation de la communication bord/sol. J'ai appris comment ce système d'exploitation personnalisé gère les ressources matérielles, les services système et le déploiement d'applications sur les équipements ferroviaires."
           }
         },
         {
@@ -158,8 +158,8 @@
             "fr": "Mener une étude comparative par rapport à l'existant dans le domaine public"
           },
           "description": {
-            "en": "MatOS is a lighter version of the Ubuntu distribution optimized to run k3s and multiple Docker containers on embedded systems with limited resources.",
-            "fr": "MatOS est une version allégée de la distribution Ubuntu optimisée pour faire tourner k3s et plusieurs conteneurs Docker sur des systèmes embarqués aux ressources limitées."
+            "en": "MatOS is a lighter version of the Ubuntu distribution optimized to run k3s (lightweight Kubernetes) and multiple Docker containers on embedded systems with limited resources. Through this work, I understand the differences between standard Linux distributions and embedded/optimized versions, including resource constraints, containerization strategies, and optimization techniques.",
+            "fr": "MatOS est une version allégée de la distribution Ubuntu optimisée pour faire tourner k3s (Kubernetes allégé) et plusieurs conteneurs Docker sur des systèmes embarqués aux ressources limitées. À travers ce travail, je comprends les différences entre les distributions Linux standards et les versions optimisées pour l'embarqué, incluant les contraintes de ressources, les stratégies de conteneurisation et les techniques d'optimisation."
           }
         },
         {
@@ -168,18 +168,18 @@
             "fr": "Mettre en œuvre la gestion de l'exécution de plusieurs programmes sur le même processeur ou sur un système embarqué"
           },
           "description": {
-            "en": "I verify the compatibility of using my client concurrently with the onboard/ground communication platform that specifically manages exchanges with the ground.",
-            "fr": "Je vérifie la compatibilité de l'utilisation de mon client de manière concurrente à la plateforme de communication bord/sol qui gère spécifiquement les échanges avec le sol."
+            "en": "I verify the compatibility of using my client concurrently with the onboard/ground communication platform that specifically manages exchanges with the ground. This involves understanding process scheduling, resource allocation, and inter-process communication on embedded systems.",
+            "fr": "Je vérifie la compatibilité de l'utilisation de mon client de manière concurrente à la plateforme de communication bord/sol qui gère spécifiquement les échanges avec le sol. Cela implique de comprendre l'ordonnancement des processus, l'allocation des ressources et la communication entre processus sur les systèmes embarqués."
           }
-        }, 
+        },
         {
           "title": {
             "en": "Communicate with one or two peripherals using the interrupt driver concept (Driver)",
             "fr": "Communiquer avec un ou deux périphériques en utilisant la notion de pilote d'interruption (Driver)"
           },
           "description": {
-            "en": "I made a piano driver transforming the letters w x c v b n into numbers 1 to 6 to play notes.",
-            "fr": "J'ai réalisé un driver de piano transformant les lettres w x c v b n m en chiffres 1 à 7 pour jouer des notes."
+            "en": "I made a piano driver transforming the letters w x c v b n m into numbers 1 to 7 to play notes. This project involved understanding interrupt handling, hardware communication at the kernel level, and device driver development patterns.",
+            "fr": "J'ai réalisé un driver de piano transformant les lettres w x c v b n m en chiffres 1 à 7 pour jouer des notes. Ce projet a impliqué la compréhension de la gestion des interruptions, la communication matérielle au niveau du noyau et les motifs de développement des pilotes de périphériques."
           }
         }
       ],
@@ -207,7 +207,48 @@
           "Présentation des livrables, bilan des actions, communication des résultats, analyse et engagement d'actions correctives"
         ]
       },
-      "achievements": [],
+      "achievements": [
+        {
+          "title": {
+            "en": "Standards and certification, quality approach, regulatory aspects",
+            "fr": "Normes et certification, démarche qualité, prise en compte des aspects réglementaires"
+          },
+          "description": {
+            "en": "I conducted a comprehensive study of the Cyber Resilience Act (CRA) regulations and their impact on SNCF operations, particularly the CIM SNCF Voyageurs division. This study involved analyzing regulatory requirements, security obligations, and their implications for the organization's information system security policies and compliance measures.",
+            "fr": "J'ai réalisé une étude approfondie des réglementations du Cyber Resilience Act (CRA) et de leur impact sur les opérations de la SNCF, en particulier pour la division CIM SNCF Voyageurs. Cette étude a impliqué l'analyse des exigences réglementaires, des obligations de sécurité et de leurs conséquences pour les politiques de sécurité du système d'information et les mesures de conformité de l'organisation."
+          }
+        },
+        {
+          "title": {
+            "en": "Search for solutions in design / realization / product / service",
+            "fr": "Recherche de solution en conception / réalisation / produit / service"
+          },
+          "description": {
+            "en": "I designed and implemented a SFTP connection testing tool to analyze and retrieve communication characteristics, including behavior in weak signal areas (broken connections). The project involved researching secure SSH-FTP protocols and developing a comprehensive solution to address the specific testing requirements for railway communication systems.",
+            "fr": "J'ai conçu et mis en œuvre un outil de test de connexion SFTP pour analyser et récupérer les caractéristiques de communication, y compris le comportement en zones blanches (connexions rompues). Le projet a impliqué la recherche des protocoles SSH-FTP sécurisés et le développement d'une solution complète répondant aux besoins spécifiques de test des systèmes de communication ferroviaires."
+          }
+        },
+        {
+          "title": {
+            "en": "Implementation: organize the mission, lead the team, participate in defining fields of action",
+            "fr": "Réalisation : organiser la mission, participation à la définition des champs d'action"
+          },
+          "description": {
+            "en": "For the SFTP PoC project, I took charge of organizing the mission through comprehensive documentation including specifications documents (cahier des charges), study documents, Gantt charts, and managing project meetings. I participated in defining the scope and deliverables of the project and ensured alignment with stakeholder requirements.",
+            "fr": "Pour le projet PoC SFTP, j'ai pris en charge l'organisation de la mission à travers une documentation complète comprenant les documents de spécifications (cahier des charges), les documents d'étude, les diagrammes de Gantt et la gestion des réunions de projet. J'ai participé à la définition des périmètres et des livrables du projet et assuré l'alignement avec les exigences des parties prenantes."
+          }
+        },
+        {
+          "title": {
+            "en": "Presentation of deliverables, summary of actions, communication of results",
+            "fr": "Présentation des livrables, communication des résultats"
+          },
+          "description": {
+            "en": "I created comprehensive documentation for all project phases including specifications, technical study documents, and project planning. I organized and participated in project meetings to present findings, demonstrate the SFTP tool functionality, and communicate progress to stakeholders, ensuring transparent and effective project communication.",
+            "fr": "J'ai créé une documentation complète pour toutes les phases de projet incluant les spécifications, les documents d'étude technique et la planification du projet. J'ai organisé et participé à des réunions de projet pour présenter les résultats, démontrer la fonctionnalité de l'outil SFTP et communiquer les avancées aux parties prenantes, en assurant une communication de projet transparente et efficace."
+          }
+        }
+      ],
       "icon": "📊",
       "gradient": "magenta-cyan"
     },
@@ -232,7 +273,48 @@
           "Être capable de proposer une politique de sécurité pour un système d'information"
         ]
       },
-      "achievements": [],
+      "achievements": [
+        {
+          "title": {
+            "en": "Identify the risks of a cyberattack",
+            "fr": "Identifier les risques d'une cyberattaque"
+          },
+          "description": {
+            "en": "Through the CRA study, I identified critical cybersecurity risks relevant to SNCF's operations, including threats to onboard/ground communication systems. I analyzed potential attack vectors and vulnerabilities specific to railway systems. For the SFTP PoC, I examined risks related to insecure file transfer protocols and network-level threats in communication channels.",
+            "fr": "À travers l'étude du CRA, j'ai identifié les risques critiques de cybersécurité pertinents pour les opérations de la SNCF, y compris les menaces envers les systèmes de communication bord/sol. J'ai analysé les vecteurs d'attaque potentiels et les vulnérabilités spécifiques aux systèmes ferroviaires. Pour le PoC SFTP, j'ai examiné les risques liés aux protocoles de transfert de fichiers non sécurisés et aux menaces au niveau du réseau dans les canaux de communication."
+          }
+        },
+        {
+          "title": {
+            "en": "Understand how the Web functions in a complex information system",
+            "fr": "Comprendre le fonctionnement du Web dans un système d'information complexe"
+          },
+          "description": {
+            "en": "I worked with the onboard/ground communication platform to understand how complex railway information systems handle data exchanges. I studied the integration of secure protocols (MTLS, SSH, SFTP) into this system architecture and analyzed how various components communicate while maintaining security through encryption and authentication mechanisms.",
+            "fr": "J'ai travaillé avec la plateforme de communication bord/sol pour comprendre comment les systèmes d'information ferroviaires complexes gèrent les échanges de données. J'ai étudié l'intégration des protocoles sécurisés (MTLS, SSH, SFTP) dans cette architecture système et analysé comment les différents composants communiquent tout en maintenant la sécurité par des mécanismes de chiffrement et d'authentification."
+          }
+        },
+        {
+          "title": {
+            "en": "Know the flaws in a system and security devices",
+            "fr": "Connaître les failles dans un système et les dispositifs de sécurité"
+          },
+          "description": {
+            "en": "I implemented and tested end-to-end authentication and encryption using MTLS certificates in the secure onboard communication project. I explored SSH secure protocols for the SFTP tool and identified how proper implementation of security devices (certificate management, encrypted channels, authentication mechanisms) prevents exploits and protects against known vulnerabilities such as man-in-the-middle attacks.",
+            "fr": "J'ai implémenté et testé l'authentification bout-en-bout et le chiffrement à l'aide de certificats MTLS dans le projet de sécurisation de la communication embarquée. J'ai exploré les protocoles SSH sécurisés pour l'outil SFTP et identifié comment une implémentation appropriée des dispositifs de sécurité (gestion de certificats, canaux chiffrés, mécanismes d'authentification) prévient les exploits et protège contre les vulnérabilités connues comme les attaques de type man-in-the-middle."
+          }
+        },
+        {
+          "title": {
+            "en": "Be able to propose a security policy for an information system",
+            "fr": "Être capable de proposer une politique de sécurité pour un système d'information"
+          },
+          "description": {
+            "en": "The CRA regulatory study provided the foundation for proposing security policies aligned with legal requirements. I analyzed SNCF's information system architecture and identified policy recommendations addressing encryption requirements, authentication standards, secure communication protocols, and compliance measures needed for modern railway systems to meet regulatory obligations.",
+            "fr": "L'étude réglementaire du CRA a fourni la base pour proposer des politiques de sécurité alignées sur les exigences légales. J'ai analysé l'architecture du système d'information de la SNCF et identifié les recommandations de politique répondant aux exigences de chiffrement, aux normes d'authentification, aux protocoles de communication sécurisés et aux mesures de conformité nécessaires pour que les systèmes ferroviaires modernes respectent les obligations réglementaires."
+          }
+        }
+      ],
       "icon": "🔒",
       "gradient": "jade-magenta"
     },
@@ -251,7 +333,18 @@
           "Application des connaissances vues en design d'interface sur l'organisation de l'écran"
         ]
       },
-      "achievements": [],
+      "achievements": [
+        {
+          "title": {
+            "en": "Application of knowledge in interface design on screen organization",
+            "fr": "Application des connaissances en design d'interface sur l'organisation de l'écran"
+          },
+          "description": {
+            "en": "During my work on railway information system projects, I considered ergonomic principles in designing user interfaces for system monitoring and configuration. I applied interface design knowledge to ensure clear presentation of technical information, proper organization of data hierarchies, logical grouping of controls, and intuitive navigation for railway system operators managing critical infrastructure.",
+            "fr": "Lors de mon travail sur les projets de systèmes d'information ferroviaires, j'ai considéré les principes ergonomiques dans la conception des interfaces utilisateur pour la surveillance et la configuration des systèmes. J'ai appliqué les connaissances en design d'interface pour assurer une présentation claire des informations techniques, une organisation appropriée des hiérarchies de données, un regroupement logique des contrôles et une navigation intuitive pour les opérateurs de systèmes ferroviaires gérant une infrastructure critique."
+          }
+        }
+      ],
       "icon": "🎨",
       "gradient": "cyan-magenta"
     },
@@ -270,7 +363,18 @@
           "Application des connaissances vues en programmation microprocesseur (GPU, DSP, ARM par exemple)"
         ]
       },
-      "achievements": [],
+      "achievements": [
+        {
+          "title": {
+            "en": "Application of microprocessor programming knowledge",
+            "fr": "Application des connaissances en programmation microprocesseur"
+          },
+          "description": {
+            "en": "In the SFTP PoC project, I implemented a SFTP monitoring module targeting ARM architecture. I compiled and deployed the module from an AMD64 (x86-64) development environment to ARM-based embedded systems used in railway equipment. This required understanding ARM instruction sets, cross-compilation techniques using appropriate toolchains, and optimization strategies for resource-constrained embedded platforms commonly found in railway operations.",
+            "fr": "Dans le projet PoC SFTP, j'ai implémenté un module de suivi SFTP ciblant l'architecture ARM. J'ai compilé et déployé le module depuis un environnement de développement AMD64 (x86-64) vers des systèmes embarqués basés sur ARM utilisés dans les équipements ferroviaires. Cela a nécessité de comprendre les jeux d'instructions ARM, les techniques de compilation croisée utilisant les chaînes d'outils appropriées et les stratégies d'optimisation pour les plateformes embarquées à ressources limitées couramment trouvées dans les opérations ferroviaires."
+          }
+        }
+      ],
       "icon": "⚡",
       "gradient": "magenta-jade"
     }

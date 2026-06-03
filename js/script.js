@@ -7,6 +7,8 @@ class PortfolioDataLoader {
             skills: null,
             experience: null
         };
+        this.currentProjectFilter = 'all';
+        this.currentUFFilter = 'all';
     }
 
     async init() {
@@ -24,6 +26,7 @@ class PortfolioDataLoader {
             this.renderSkills();
             this.renderExperience();
             this.renderUF();
+            this.initializeFilters();
             
             console.log('✅ Portfolio data loaded successfully');
         } catch (error) {
@@ -106,6 +109,193 @@ class PortfolioDataLoader {
                 </div>
             </article>
         `).join('');
+    }
+
+    // Initialize Filters
+    initializeFilters() {
+        // Initialize project filters
+        this.createProjectFilters();
+        this.attachProjectFilterListeners();
+        
+        // Initialize UF filters
+        this.attachUFFilterListeners();
+    }
+
+    // Create project filter buttons dynamically
+    createProjectFilters() {
+        const filterContainer = document.getElementById('projects-filter-container');
+        if (!filterContainer || !this.data.projects) return;
+
+        // Get all unique tags from projects
+        const allTags = new Set();
+        this.data.projects.forEach(project => {
+            const tags = this.normalizeTags(project.tags);
+            tags.forEach(tag => {
+                const tagName = this.getText(tag);
+                allTags.add(tagName);
+            });
+        });
+
+        // Create filter buttons for each tag
+        const tagsArray = Array.from(allTags).sort();
+        tagsArray.forEach(tag => {
+            const btn = document.createElement('button');
+            btn.className = 'filter-btn';
+            btn.setAttribute('data-filter', tag);
+            btn.setAttribute('data-en', tag);
+            btn.setAttribute('data-fr', tag);
+            btn.textContent = tag;
+            filterContainer.appendChild(btn);
+        });
+    }
+
+    // Attach event listeners to project filter buttons
+    attachProjectFilterListeners() {
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const filter = btn.getAttribute('data-filter');
+                
+                // Update active state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter and re-render projects
+                this.currentProjectFilter = filter;
+                this.filterAndRenderProjects();
+            });
+        });
+    }
+
+    // Filter and render projects
+    filterAndRenderProjects() {
+        let filteredProjects = this.data.projects;
+
+        if (this.currentProjectFilter !== 'all') {
+            filteredProjects = this.data.projects.filter(project => {
+                const tags = this.normalizeTags(project.tags);
+                return tags.some(tag => this.getText(tag) === this.currentProjectFilter);
+            });
+        }
+
+        // Render filtered projects
+        const container = document.getElementById('projects-container');
+        if (!container) return;
+
+        container.innerHTML = filteredProjects.map((project, index) => `
+            <article class="project-card" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
+                <div class="project-image">
+                    ${project.img ? 
+                        `<img src="https://mogglej.github.io/Portfolio_2026${project.img}" alt="${this.escapeHtml(project.title.en)}" class="project-img-src">` : 
+                        `<div class="placeholder-project gradient-${project.gradient}">
+                            <span>${project.icon}</span>
+                        </div>`
+                    }
+                    <div class="project-overlay">
+                        <a href="${project.link}" class="project-link-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    ${(() => {
+                        const tags = this.normalizeTags(project.tags);
+                        const tagsHtml = tags.map(t => this.getTagHtml(t, 'tag', '#')).join(' ');
+                        return `<div class="project-tags">${tagsHtml}</div>`;
+                    })()}
+                    <h3 data-en="${this.escapeHtml(project.title.en)}" data-fr="${this.escapeHtml(project.title.fr)}">
+                        ${this.getText(project.title)}
+                    </h3>
+                    <p data-en="${this.escapeHtml(project.description.en)}" data-fr="${this.escapeHtml(project.description.fr)}">
+                        ${this.getText(project.description)}
+                    </p>
+                    <a href="${project.link}" class="project-link">
+                        <span data-en="Learn more" data-fr="En savoir plus">Learn more</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+        `).join('');
+    }
+
+    // Attach event listeners to UF filter buttons
+    attachUFFilterListeners() {
+        const ufFilterBtns = document.querySelectorAll('.uf-filter-btn');
+        ufFilterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const filter = btn.getAttribute('data-uf-filter');
+                
+                // Update active state
+                ufFilterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Filter and re-render UF
+                this.currentUFFilter = filter;
+                this.filterAndRenderUF();
+            });
+        });
+    }
+
+    // Filter and render UF
+    filterAndRenderUF() {
+        let filteredUF = this.data.uf;
+
+        if (this.currentUFFilter !== 'all') {
+            filteredUF = this.data.uf.filter(uf => {
+                const ufNumber = uf.code.match(/\d+/)[0];
+                return ufNumber === this.currentUFFilter;
+            });
+        }
+
+        const isMobile = window.innerWidth < 900;
+        const container = document.getElementById('uf-container');
+        if (!container) return;
+
+        container.innerHTML = `
+            <div class="uf-section">
+                ${filteredUF.map((uf, index) => {
+                    const animation = isMobile ? 'fade-up' : (index % 2 === 0 ? 'fade-right' : 'fade-left');
+                    
+                    return `
+                    <div class="uf-row" data-aos="${animation}">
+                        <div class="uf-planet">
+                            <span class="uf-code">${uf.code}</span>
+                            <div class="uf-icon" >${uf.icon}</div>
+                            <h3 data-en="${this.escapeHtml(uf.title.en)}" 
+                                data-fr="${this.escapeHtml(uf.title.fr)}">
+                                ${this.getText(uf.title)}
+                            </h3>
+                        </div>
+
+                        <div class="uf-data-panel">
+                            <div class="uf-content-list">
+                                ${uf.achievements.map(ach => `
+                                    <div class="uf-content-item">
+                                        <span class="uf-consigne" 
+                                            data-en="${this.escapeHtml(ach.title.en)}" 
+                                            data-fr="${this.escapeHtml(ach.title.fr)}">
+                                            ${this.getText(ach.title)}
+                                        </span>
+                                        <p class="uf-desc" 
+                                        data-en="${this.escapeHtml(ach.description.en)}" 
+                                        data-fr="${this.escapeHtml(ach.description.fr)}">
+                                            ${this.getText(ach.description)}
+                                        </p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                }).join('')}
+            </div>
+        `;
     }
 
         // Render Skills
@@ -274,50 +464,7 @@ class PortfolioDataLoader {
 
     // Render Training Units (UF)
     renderUF() {
-        const container = document.getElementById('uf-container');
-        if (!container || !this.data.uf) return;
-
-        const isMobile = window.innerWidth < 900;
-
-        container.innerHTML = `
-            <div class="uf-section">
-                ${this.data.uf.map((uf, index) => {
-                    const animation = isMobile ? 'fade-up' : (index % 2 === 0 ? 'fade-right' : 'fade-left');
-                    
-                    return `
-                    <div class="uf-row" data-aos="${animation}">
-                        <div class="uf-planet">
-                            <span class="uf-code">${uf.code}</span>
-                            <div class="uf-icon" >${uf.icon}</div>
-                            <h3 data-en="${this.escapeHtml(uf.title.en)}" 
-                                data-fr="${this.escapeHtml(uf.title.fr)}">
-                                ${this.getText(uf.title)}
-                            </h3>
-                        </div>
-
-                        <div class="uf-data-panel">
-                            <div class="uf-content-list">
-                                ${uf.achievements.map(ach => `
-                                    <div class="uf-content-item">
-                                        <span class="uf-consigne" 
-                                            data-en="${this.escapeHtml(ach.title.en)}" 
-                                            data-fr="${this.escapeHtml(ach.title.fr)}">
-                                            ${this.getText(ach.title)}
-                                        </span>
-                                        <p class="uf-desc" 
-                                        data-en="${this.escapeHtml(ach.description.en)}" 
-                                        data-fr="${this.escapeHtml(ach.description.fr)}">
-                                            ${this.getText(ach.description)}
-                                        </p>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    </div>
-                    `;
-                }).join('')}
-            </div>
-        `;
+        this.filterAndRenderUF();
     }
 
     // Helper Functions
@@ -337,9 +484,10 @@ class PortfolioDataLoader {
     // Update language and re-render
     updateLanguage(lang) {
         this.currentLang = lang;
-        this.renderProjects();
+        this.filterAndRenderProjects();
         this.renderSkills();
         this.renderExperience();
+        this.filterAndRenderUF();
     }
 }
 
