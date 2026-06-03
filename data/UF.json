@@ -185,6 +185,94 @@
       ],
       "icon": "⚙️",
       "gradient": "cyan-jade"
+    },
+    {
+      "id": "uf-8-1",
+      "code": "UF 8.1",
+      "title": {
+        "en": "Professional Life: Project Management",
+        "fr": "Vie Professionnelle : Conduite de Projet"
+      },
+      "objectives": {
+        "en": [
+          "Standards and certification, quality approach, regulatory aspects",
+          "Search for solutions in design / realization / product / service",
+          "Implementation: organize the mission, lead the team, participate in defining fields of action and exercise responsibilities",
+          "Presentation of deliverables, summary of actions, communication of results, analysis and commitment of corrective actions"
+        ],
+        "fr": [
+          "Normes et certification, démarche qualité, prise en compte des aspects réglementaires",
+          "Recherche de solution en conception / réalisation / produit / service",
+          "Réalisation : organiser la mission, conduite de l'équipe, participation à la définition des champs d'action et à l'exercice des responsabilités",
+          "Présentation des livrables, bilan des actions, communication des résultats, analyse et engagement d'actions correctives"
+        ]
+      },
+      "achievements": [],
+      "icon": "📊",
+      "gradient": "magenta-cyan"
+    },
+    {
+      "id": "uf-8-2",
+      "code": "UF 8.2",
+      "title": {
+        "en": "Technical: Information System Security",
+        "fr": "Technique : Sécurité du Système d'Information"
+      },
+      "objectives": {
+        "en": [
+          "Identify the risks of a cyberattack",
+          "Understand how the Web functions in a complex information system",
+          "Know the flaws in a system and security devices",
+          "Be able to propose a security policy for an information system"
+        ],
+        "fr": [
+          "Identifier les risques d'une cyberattaque",
+          "Comprendre le fonctionnement du Web dans un système d'information complexe",
+          "Connaître les failles dans un système et les dispositifs de sécurité",
+          "Être capable de proposer une politique de sécurité pour un système d'information"
+        ]
+      },
+      "achievements": [],
+      "icon": "🔒",
+      "gradient": "jade-magenta"
+    },
+    {
+      "id": "uf-8-3-ips",
+      "code": "UF 8.3 IPS",
+      "title": {
+        "en": "Technical: Interface Design & Ergonomics Project",
+        "fr": "Technique : Projet Ergonomie Interface"
+      },
+      "objectives": {
+        "en": [
+          "Application of knowledge seen in interface design on screen organization"
+        ],
+        "fr": [
+          "Application des connaissances vues en design d'interface sur l'organisation de l'écran"
+        ]
+      },
+      "achievements": [],
+      "icon": "🎨",
+      "gradient": "cyan-magenta"
+    },
+    {
+      "id": "uf-8-3-astre",
+      "code": "UF 8.3 ASTRE",
+      "title": {
+        "en": "Technical: Microprocessor Application (GPU, DSP, ARM)",
+        "fr": "Technique : Application Microprocesseur (GPU, DSP, ARM)"
+      },
+      "objectives": {
+        "en": [
+          "Application of knowledge seen in microprocessor programming (GPU, DSP, ARM for example)"
+        ],
+        "fr": [
+          "Application des connaissances vues en programmation microprocesseur (GPU, DSP, ARM par exemple)"
+        ]
+      },
+      "achievements": [],
+      "icon": "⚡",
+      "gradient": "magenta-jade"
     }
   ]
 }

@@ -114,6 +114,82 @@
       "img" : "/images/ia-othello.gif",
       "gradient": "jade-cyan",
       "link": "https://github.com/MoggleJ/IA-Othello-Player.git"
+    },
+    {
+      "id": "poc-sftp",
+      "title": {
+        "en": "PoC SFTP Connection Testing Tool",
+        "fr": "PoC Outil de Test de Connexion SFTP"
+      },
+      "description": {
+        "en": "Implementation of a SFTP connection testing tool to analyze and retrieve communication characteristics, including behavior in weak signal areas (broken connections). Used SSH secure FTP protocol. My role included documentation writing (specifications, study documents, Gantt charts, meetings) and implementation of an ARM-compiled SFTP monitoring module from AMD64.",
+        "fr": "Mise en place d'un outil de test de connexion SFTP : analyser et récupérer des caractéristiques de la communication, y compris son comportement en zone blanche (connexion rompue). Protocole secure SSH FTP. Mon rôle : rédaction de documentation (cahier des charges, document d'étude, gantt, réunions) et mise en place d'un module de suivi SFTP en compilation ARM depuis AMD64."
+      },
+      "tags": {
+        "en": ["Security", "SFTP", "SSH", "Testing", "Documentation", "ARM", "Python"],
+        "fr": ["Sécurité", "SFTP", "SSH", "Tests", "Documentation", "ARM", "Python"]
+      },
+      "icon": "🔐",
+      "img" : null,
+      "gradient": "cyan-jade",
+      "link": "#contact"
+    },
+    {
+      "id": "cra-study",
+      "title": {
+        "en": "Cyber Resilience Act Study",
+        "fr": "Étude Cyber Resilience Act"
+      },
+      "description": {
+        "en": "Study and summary of Cyber Resilience Act (CRA) regulations and its consequences for SNCF, particularly for the CIM SNCF Voyageurs division activities. Analysis of regulatory requirements and their impact on information system security.",
+        "fr": "Étude et résumé des réglementations Cyber Resilience Act et des conséquences sur SNCF et notamment sur les activités du CIM SNCF Voyageurs. Analyse des exigences réglementaires et de leur impact sur la sécurité du système d'information."
+      },
+      "tags": {
+        "en": ["Security", "Regulations", "CRA", "Compliance", "Documentation"],
+        "fr": ["Sécurité", "Réglementations", "CRA", "Conformité", "Documentation"]
+      },
+      "icon": "📋",
+      "img" : null,
+      "gradient": "jade-magenta",
+      "link": "#contact"
+    },
+    {
+      "id": "mobile-app-kotlin",
+      "title": {
+        "en": "Mobile Application Development in Kotlin",
+        "fr": "Développement d'Application Mobile en Kotlin"
+      },
+      "description": {
+        "en": "Development of a mobile application using Kotlin and Android Studio. This school project enhanced my skills in mobile development and cross-platform programming.",
+        "fr": "Développement d'une application mobile en Kotlin avec Android Studio. Ce projet d'école a renforcé mes compétences en développement mobile et en programmation multiplateforme."
+      },
+      "tags": {
+        "en": ["Mobile", "Kotlin", "Android Studio", "Education"],
+        "fr": ["Mobile", "Kotlin", "Android Studio", "Éducation"]
+      },
+      "icon": "📱",
+      "img" : null,
+      "gradient": "magenta-cyan",
+      "link": "#contact"
+    },
+    {
+      "id": "cocobonbon",
+      "title": {
+        "en": "Cocobonbon - Automated Candy Dispenser Machine",
+        "fr": "Cocobonbon - Machine à Bonbon Automatisée"
+      },
+      "description": {
+        "en": "A class-built automated candy dispensing machine designed and developed from start to finish. My responsibilities included defining specifications and constraints, and training in SolidWorks Composer (building on previous SolidWorks experience) to create a maintenance and assembly video of the product.",
+        "fr": "Une machine à bonbon automatisée construite par la classe de A-Z. Je me suis occupée des spécifications et contraintes et je me suis formée à SolidWorks Composer (j'avais déjà fait du SolidWorks avant) pour faire une vidéo de maintenance et montage du produit."
+      },
+      "tags": {
+        "en": ["Mechatronics", "3D Design", "SolidWorks", "Project Management", "Education"],
+        "fr": ["Mécatronique", "Conception 3D", "SolidWorks", "Gestion de Projet", "Éducation"]
+      },
+      "icon": "🍬",
+      "img" : null,
+      "gradient": "cyan-magenta",
+      "link": "#contact"
     }
   
   ]
