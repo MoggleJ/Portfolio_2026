@@ -113,57 +113,110 @@ class PortfolioDataLoader {
 
     // Initialize Filters
     initializeFilters() {
-        // Initialize project filters
         this.createProjectFilters();
-        this.attachProjectFilterListeners();
-        
-        // Initialize UF filters
-        this.attachUFFilterListeners();
+        this.createUFFilters();
     }
 
-    // Create project filter buttons dynamically
-    createProjectFilters() {
-        const filterContainer = document.getElementById('projects-filter-container');
-        if (!filterContainer || !this.data.projects) return;
+    // Build a reusable filter dropdown
+    buildFilterDropdown(containerId, options, onSelect) {
+        const wrapper = document.getElementById(containerId);
+        if (!wrapper) return;
 
-        // Get all unique tags from projects
+        const dropdown = document.createElement('div');
+        dropdown.className = 'filter-dropdown';
+
+        const trigger = document.createElement('button');
+        trigger.className = 'filter-dropdown-trigger';
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.setAttribute('aria-haspopup', 'listbox');
+
+        const firstOpt = options[0];
+        trigger.innerHTML = `
+            <svg class="filter-dropdown-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+            </svg>
+            <span class="filter-dropdown-label" data-en="${firstOpt.en}" data-fr="${firstOpt.fr}">${firstOpt[this.currentLang] || firstOpt.en}</span>
+            <svg class="filter-dropdown-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"/>
+            </svg>
+        `;
+
+        const menu = document.createElement('ul');
+        menu.className = 'filter-dropdown-menu';
+        menu.setAttribute('role', 'listbox');
+
+        const labelSpan = trigger.querySelector('.filter-dropdown-label');
+
+        options.forEach((opt, i) => {
+            const item = document.createElement('li');
+            item.className = 'filter-dropdown-item' + (i === 0 ? ' active' : '');
+            item.setAttribute('role', 'option');
+            item.setAttribute('data-value', opt.value);
+            item.setAttribute('data-en', opt.en);
+            item.setAttribute('data-fr', opt.fr);
+            item.textContent = opt[this.currentLang] || opt.en;
+
+            item.addEventListener('click', () => {
+                menu.querySelectorAll('.filter-dropdown-item').forEach(el => el.classList.remove('active'));
+                item.classList.add('active');
+                labelSpan.setAttribute('data-en', opt.en);
+                labelSpan.setAttribute('data-fr', opt.fr);
+                labelSpan.textContent = opt[this.currentLang] || opt.en;
+                close();
+                onSelect(opt.value);
+            });
+
+            menu.appendChild(item);
+        });
+
+        const toggle = () => {
+            const isOpen = dropdown.classList.toggle('open');
+            trigger.setAttribute('aria-expanded', String(isOpen));
+        };
+        const close = () => {
+            dropdown.classList.remove('open');
+            trigger.setAttribute('aria-expanded', 'false');
+        };
+
+        trigger.addEventListener('click', (e) => { e.stopPropagation(); toggle(); });
+        document.addEventListener('click', (e) => { if (!dropdown.contains(e.target)) close(); });
+
+        dropdown.appendChild(trigger);
+        dropdown.appendChild(menu);
+        wrapper.appendChild(dropdown);
+    }
+
+    // Create project filter dropdown
+    createProjectFilters() {
+        if (!this.data.projects) return;
+
         const allTags = new Set();
         this.data.projects.forEach(project => {
-            const tags = this.normalizeTags(project.tags);
-            tags.forEach(tag => {
-                const tagName = this.getText(tag);
-                allTags.add(tagName);
-            });
+            this.normalizeTags(project.tags).forEach(tag => allTags.add(this.getText(tag)));
         });
 
-        // Create filter buttons for each tag
-        const tagsArray = Array.from(allTags).sort();
-        tagsArray.forEach(tag => {
-            const btn = document.createElement('button');
-            btn.className = 'filter-btn';
-            btn.setAttribute('data-filter', tag);
-            btn.setAttribute('data-en', tag);
-            btn.setAttribute('data-fr', tag);
-            btn.textContent = tag;
-            filterContainer.appendChild(btn);
+        const options = [
+            { value: 'all', en: 'All', fr: 'Tous' },
+            ...Array.from(allTags).sort().map(tag => ({ value: tag, en: tag, fr: tag }))
+        ];
+
+        this.buildFilterDropdown('projects-filter-container', options, (value) => {
+            this.currentProjectFilter = value;
+            this.filterAndRenderProjects();
         });
     }
 
-    // Attach event listeners to project filter buttons
-    attachProjectFilterListeners() {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const filter = btn.getAttribute('data-filter');
-                
-                // Update active state
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                // Filter and re-render projects
-                this.currentProjectFilter = filter;
-                this.filterAndRenderProjects();
-            });
+    // Create UF filter dropdown
+    createUFFilters() {
+        const options = [
+            { value: 'all', en: 'All UF', fr: 'Tous les UF' },
+            { value: '7', en: 'UF 7', fr: 'UF 7' },
+            { value: '8', en: 'UF 8', fr: 'UF 8' },
+        ];
+
+        this.buildFilterDropdown('uf-filter-container', options, (value) => {
+            this.currentUFFilter = value;
+            this.filterAndRenderUF();
         });
     }
 
@@ -224,24 +277,6 @@ class PortfolioDataLoader {
         `).join('');
     }
 
-    // Attach event listeners to UF filter buttons
-    attachUFFilterListeners() {
-        const ufFilterBtns = document.querySelectorAll('.uf-filter-btn');
-        ufFilterBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const filter = btn.getAttribute('data-uf-filter');
-                
-                // Update active state
-                ufFilterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                // Filter and re-render UF
-                this.currentUFFilter = filter;
-                this.filterAndRenderUF();
-            });
-        });
-    }
-
     // Filter and render UF
     filterAndRenderUF() {
         let filteredUF = this.data.uf;
@@ -264,7 +299,7 @@ class PortfolioDataLoader {
                     
                     return `
                     <div class="uf-row" data-aos="${animation}">
-                        <div class="uf-planet">
+                        <div class="uf-planet gradient-${uf.gradient}">
                             <span class="uf-code">${uf.code}</span>
                             <div class="uf-icon" >${uf.icon}</div>
                             <h3 data-en="${this.escapeHtml(uf.title.en)}" 
@@ -488,6 +523,11 @@ class PortfolioDataLoader {
         this.renderSkills();
         this.renderExperience();
         this.filterAndRenderUF();
+        // Sync dropdown item text to new language
+        document.querySelectorAll('.filter-dropdown-item, .filter-dropdown-label').forEach(el => {
+            const text = el.getAttribute(`data-${lang}`);
+            if (text) el.textContent = text;
+        });
     }
 }
 

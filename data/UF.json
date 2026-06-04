@@ -280,8 +280,8 @@
             "fr": "Identifier les risques d'une cyberattaque"
           },
           "description": {
-            "en": "Through the CRA study, I identified critical cybersecurity risks relevant to SNCF's operations, including threats to onboard/ground communication systems. I analyzed potential attack vectors and vulnerabilities specific to railway systems. For the SFTP PoC, I examined risks related to insecure file transfer protocols and network-level threats in communication channels.",
-            "fr": "À travers l'étude du CRA, j'ai identifié les risques critiques de cybersécurité pertinents pour les opérations de la SNCF, y compris les menaces envers les systèmes de communication bord/sol. J'ai analysé les vecteurs d'attaque potentiels et les vulnérabilités spécifiques aux systèmes ferroviaires. Pour le PoC SFTP, j'ai examiné les risques liés aux protocoles de transfert de fichiers non sécurisés et aux menaces au niveau du réseau dans les canaux de communication."
+            "en": "Each train communicates via a SNCF SIM card through private APN, but the rolling stock identity is only associated after reaching the frontend servers. A compromised SIM card could therefore be used to impersonate a legitimate train and inject or query sensitive data. In a railway context, where certain data contributes to network safety and operations, this identity usurpation vulnerability can have serious consequences.",
+            "fr": "Chaque train communique via une carte SIM SNCF par APN privé, mais l'identité du matériel roulant n'est associée qu'après le passage par les serveurs frontaux. Une carte SIM compromise pourrait donc être utilisée pour usurper l'identité d'un train légitime et injecter ou consulter des données sensibles. Dans un contexte ferroviaire, où certaines informations participent à la sécurité et à l'exploitation du réseau, cette vulnérabilité d'usurpation d'identité peut avoir des conséquences importantes."
           }
         },
         {
@@ -290,8 +290,8 @@
             "fr": "Comprendre le fonctionnement du Web dans un système d'information complexe"
           },
           "description": {
-            "en": "I worked with the onboard/ground communication platform to understand how complex railway information systems handle data exchanges. I studied the integration of secure protocols (MTLS, SSH, SFTP) into this system architecture and analyzed how various components communicate while maintaining security through encryption and authentication mechanisms.",
-            "fr": "J'ai travaillé avec la plateforme de communication bord/sol pour comprendre comment les systèmes d'information ferroviaires complexes gèrent les échanges de données. J'ai étudié l'intégration des protocoles sécurisés (MTLS, SSH, SFTP) dans cette architecture système et analysé comment les différents composants communiquent tout en maintenant la sécurité par des mécanismes de chiffrement et d'authentification."
+            "en": "I studied SNCF's onboard/ground communication architecture: data emitted by trains travels through 4G/5G mobile networks, then through SNCF-operated private APNs, before reaching border routers, passing through firewall-protected zones, and being processed by frontend servers that handle identification and routing toward backend servers. These backend servers concentrate flows from rolling stock and make data available to business applications.",
+            "fr": "J'ai étudié l'architecture de communication bord/sol de la SNCF : les données émises par les trains transitent par les réseaux mobiles 4G/5G, puis par des APN privés opérés par la SNCF, avant d'atteindre les routeurs frontaliers, de traverser une zone protégée par des firewalls, et d'être traitées par les serveurs frontaux qui assurent l'identification et le routage vers les serveurs dorsaux. Ces derniers concentrent les flux des matériels roulants et mettent les données à disposition des applications métier."
           }
         },
         {
@@ -300,8 +300,8 @@
             "fr": "Connaître les failles dans un système et les dispositifs de sécurité"
           },
           "description": {
-            "en": "I implemented and tested end-to-end authentication and encryption using MTLS certificates in the secure onboard communication project. I explored SSH secure protocols for the SFTP tool and identified how proper implementation of security devices (certificate management, encrypted channels, authentication mechanisms) prevents exploits and protects against known vulnerabilities such as man-in-the-middle attacks.",
-            "fr": "J'ai implémenté et testé l'authentification bout-en-bout et le chiffrement à l'aide de certificats MTLS dans le projet de sécurisation de la communication embarquée. J'ai exploré les protocoles SSH sécurisés pour l'outil SFTP et identifié comment une implémentation appropriée des dispositifs de sécurité (gestion de certificats, canaux chiffrés, mécanismes d'authentification) prévient les exploits et protège contre les vulnérabilités connues comme les attaques de type man-in-the-middle."
+            "en": "Although transport-level security devices (APNs, firewalls) protect data in transit, they do not guarantee the identity of the emitting equipment. The absence of direct cryptographic authentication between the train and the frontend servers makes it impossible to verify the true origin of received data. Additionally, when rolling stock is transferred to an external operator, deploying a separate private APN infrastructure increases configuration error risks.",
+            "fr": "Bien que les dispositifs de sécurité au niveau transport (APN, firewalls) protègent les données en transit, ils ne permettent pas de garantir l'identité du matériel émetteur. L'absence d'authentification cryptographique directe entre le train et les serveurs frontaux empêche de vérifier l'origine réelle des informations reçues. Par ailleurs, lors du transfert d'un matériel à un exploitant extérieur, le déploiement d'une infrastructure d'APN privés séparée augmente le risque d'erreurs de configuration."
           }
         },
         {
@@ -310,8 +310,8 @@
             "fr": "Être capable de proposer une politique de sécurité pour un système d'information"
           },
           "description": {
-            "en": "The CRA regulatory study provided the foundation for proposing security policies aligned with legal requirements. I analyzed SNCF's information system architecture and identified policy recommendations addressing encryption requirements, authentication standards, secure communication protocols, and compliance measures needed for modern railway systems to meet regulatory obligations.",
-            "fr": "L'étude réglementaire du CRA a fourni la base pour proposer des politiques de sécurité alignées sur les exigences légales. J'ai analysé l'architecture du système d'information de la SNCF et identifié les recommandations de politique répondant aux exigences de chiffrement, aux normes d'authentification, aux protocoles de communication sécurisés et aux mesures de conformité nécessaires pour que les systèmes ferroviaires modernes respectent les obligations réglementaires."
+            "en": "To address these vulnerabilities, I developed a prototype in Python implementing mutual authentication (mTLS) between onboard gateways and the SI. Each gateway is equipped with a unique digital certificate serving as its electronic identity. Before any data exchange, both parties cryptographically verify each other's identity, authorizing only communications from legitimate equipment. This approach eliminates dependence on private tunnels while resolving the identity usurpation problem.",
+            "fr": "Pour résoudre ces vulnérabilités à la racine, j'ai développé un prototype en Python implémentant l'authentification mutuelle (mTLS) entre les passerelles embarquées et le SI. Chaque passerelle est dotée d'un certificat numérique unique servant d'identité électronique. Avant tout échange de données, chaque partie vérifie cryptographiquement l'identité de son interlocuteur, n'autorisant que les communications provenant d'équipements légitimes. Cette approche supprime la dépendance aux tunnels privés tout en résolvant le problème d'usurpation d'identité."
           }
         }
       ],
@@ -340,8 +340,8 @@
             "fr": "Application des connaissances en design d'interface sur l'organisation de l'écran"
           },
           "description": {
-            "en": "During my work on railway information system projects, I considered ergonomic principles in designing user interfaces for system monitoring and configuration. I applied interface design knowledge to ensure clear presentation of technical information, proper organization of data hierarchies, logical grouping of controls, and intuitive navigation for railway system operators managing critical infrastructure.",
-            "fr": "Lors de mon travail sur les projets de systèmes d'information ferroviaires, j'ai considéré les principes ergonomiques dans la conception des interfaces utilisateur pour la surveillance et la configuration des systèmes. J'ai appliqué les connaissances en design d'interface pour assurer une présentation claire des informations techniques, une organisation appropriée des hiérarchies de données, un regroupement logique des contrôles et une navigation intuitive pour les opérateurs de systèmes ferroviaires gérant une infrastructure critique."
+            "en": "For ITxPT compliance testing, I designed a desktop application to measure the electrical consumption of equipment under test. The interface had to be usable by technicians without prior guidance, which required deliberate ergonomic choices: menus grouped by related functionality, consistent iconography (floppy disk for save, play button for start/stop), sufficient spacing between interactive elements, and coherent color usage. The configuration screen clearly separates measurement parameters (sampling rate, thresholds) from module information (device name, firmware version) to avoid cognitive overload.",
+            "fr": "Pour les tests de conformité ITxPT, j'ai conçu une application desktop de mesure de la consommation électrique des équipements sous test. L'interface devait être utilisable par des techniciens sans formation préalable, ce qui a nécessité des choix ergonomiques précis : menus regroupés par fonctionnalités liées, iconographie cohérente (disquette pour la sauvegarde, bouton play pour le démarrage/arrêt), espacement suffisant entre les éléments interactifs et usage cohérent des couleurs. L'écran de configuration sépare clairement les paramètres de la mesure (fréquence d'échantillonnage, seuils) des informations du module (nom de l'équipement, version firmware) pour éviter la surcharge cognitive."
           }
         }
       ],

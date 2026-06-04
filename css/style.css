@@ -793,6 +793,135 @@ body {
 }
 
 /* ========================================
+   Filter Dropdown
+======================================== */
+.filter-dropdown-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: var(--spacing-md) 0;
+}
+
+.filter-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.filter-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1.4rem;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(125, 211, 192, 0.2);
+    border-radius: var(--radius-full);
+    color: var(--light-text);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: var(--transition-base);
+    white-space: nowrap;
+}
+
+.filter-dropdown-trigger:hover {
+    border-color: rgba(125, 211, 192, 0.5);
+    background: rgba(125, 211, 192, 0.07);
+    box-shadow: 0 0 20px rgba(125, 211, 192, 0.12);
+}
+
+.filter-dropdown.open .filter-dropdown-trigger {
+    border-color: var(--jade-light);
+    background: rgba(125, 211, 192, 0.1);
+    box-shadow: 0 0 24px rgba(125, 211, 192, 0.18);
+}
+
+.filter-dropdown-icon {
+    color: var(--jade-medium);
+    flex-shrink: 0;
+    opacity: 0.8;
+}
+
+.filter-dropdown-label {
+    color: var(--jade-light);
+    font-weight: 500;
+}
+
+.filter-dropdown-arrow {
+    color: var(--gray-medium);
+    flex-shrink: 0;
+    transition: transform 0.28s var(--easing-smooth), color 0.2s ease;
+}
+
+.filter-dropdown.open .filter-dropdown-arrow {
+    transform: rotate(180deg);
+    color: var(--jade-light);
+}
+
+.filter-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    background: rgba(20, 20, 20, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(125, 211, 192, 0.12);
+    border-radius: var(--radius-md);
+    list-style: none;
+    padding: 0.4rem;
+    min-width: 180px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s var(--easing-smooth);
+    z-index: 200;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(125, 211, 192, 0.06);
+}
+
+.filter-dropdown.open .filter-dropdown-menu {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateX(-50%) translateY(0);
+}
+
+.filter-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.9rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: var(--gray-light);
+    transition: var(--transition-fast);
+    white-space: nowrap;
+    position: relative;
+}
+
+.filter-dropdown-item:hover {
+    background: rgba(125, 211, 192, 0.09);
+    color: var(--jade-light);
+}
+
+.filter-dropdown-item.active {
+    background: linear-gradient(135deg, rgba(125, 211, 192, 0.13), rgba(184, 51, 106, 0.07));
+    color: var(--jade-light);
+    font-weight: 500;
+}
+
+.filter-dropdown-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20%;
+    height: 60%;
+    width: 2.5px;
+    background: linear-gradient(to bottom, var(--jade-light), var(--magenta));
+    border-radius: 0 2px 2px 0;
+}
+
+/* ========================================
    Projects Section
 ======================================== */
 .projects-section {
@@ -1038,10 +1167,27 @@ body {
     text-transform: uppercase;
 }
 
-/* Couleurs des planètes par rang */
-.uf-row:nth-child(1) .uf-planet { background: radial-gradient(circle at 30% 30%, var(--jade-medium), #000); box-shadow: 0 0 50px var(--planet-glow-jade); }
-.uf-row:nth-child(2) .uf-planet { background: radial-gradient(circle at 30% 30%, var(--magenta), #000); box-shadow: 0 0 50px var(--planet-glow-magenta); }
-.uf-row:nth-child(3) .uf-planet { background: radial-gradient(circle at 30% 30%, #4facfe, #000); box-shadow: 0 0 50px var(--planet-glow-blue); }
+/* Couleurs des planètes par gradient */
+.uf-planet.gradient-jade-magenta {
+    background: radial-gradient(circle at 30% 30%, var(--jade-medium) 0%, var(--magenta-dark) 70%, #000 100%);
+    box-shadow: 0 0 50px var(--planet-glow-jade);
+}
+.uf-planet.gradient-magenta-jade {
+    background: radial-gradient(circle at 30% 30%, var(--magenta) 0%, var(--jade-dark) 70%, #000 100%);
+    box-shadow: 0 0 50px var(--planet-glow-magenta);
+}
+.uf-planet.gradient-cyan-jade {
+    background: radial-gradient(circle at 30% 30%, #4facfe 0%, var(--jade-dark) 70%, #000 100%);
+    box-shadow: 0 0 50px var(--planet-glow-blue);
+}
+.uf-planet.gradient-magenta-cyan {
+    background: radial-gradient(circle at 30% 30%, var(--magenta) 0%, #1a4b7a 70%, #000 100%);
+    box-shadow: 0 0 50px var(--planet-glow-magenta);
+}
+.uf-planet.gradient-cyan-magenta {
+    background: radial-gradient(circle at 30% 30%, #4facfe 0%, var(--magenta-dark) 70%, #000 100%);
+    box-shadow: 0 0 50px var(--planet-glow-blue);
+}
 
 /* Le Panneau de données (Rectangle) */
 .uf-data-panel {
